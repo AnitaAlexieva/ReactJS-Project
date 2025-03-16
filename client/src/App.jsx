@@ -7,7 +7,7 @@ function App() {
       <div className="header_section">
          <div className="container-fluid">
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-               <div className="logo"><a href="index.html"><img src="/images/logo.png"/></a></div>
+               <div className="logo"><a href="index.html"><img className="img-logo" src="/images/logo2.png"/></a></div>
                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"aria-expanded="false" aria-label="Toggle navigation">
                <span className="navbar-toggler-icon"></span>
                </button>

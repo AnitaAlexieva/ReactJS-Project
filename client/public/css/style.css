@@ -151,6 +151,11 @@ a,
     transition: all .3s ease-in-out;
 }
 
+.img-logo {
+    max-width: 8%;
+    height: auto;
+}
+
 img {
     max-width: 100%;
     height: auto;
@@ -220,7 +225,7 @@ button {
 .header_section {
     width: 100%;
     float: left;
-    background-color: #252525;
+    background-color: #bf8f5a;
     height: auto;
     background-size: 100%;
 }
@@ -240,12 +245,12 @@ button {
 .navbar-light .navbar-nav .nav-link.active,
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .show>.nav-link {
-    color: #f76d37;
+    color: #5c392c;
 }
 
 .navbar-light .navbar-nav .nav-link:focus,
 .navbar-light .navbar-nav .nav-link:hover {
-    color: #f76d37;
+    color: #5c392c;
 }
 
 .navbar {
@@ -256,7 +261,7 @@ button {
     padding-right: .5rem;
     padding-left: .5rem;
     font-size: 18px;
-    color: #fff;
+    color: #140101;
 }
 
 .logo {}
@@ -293,7 +298,7 @@ button {
     width: 100%;
     float: left;
     font-size: 70px;
-    color: #fdfcfa;
+    color: #c4b28d;
     font-weight: bold;
     padding-bottom: 0px;
 }
@@ -302,7 +307,7 @@ button {
     width: 50%;
     float: left;
     font-size: 16px;
-    color: #fff;
+    color: #dcdacb;
     margin: 0px;
     padding-bottom: 30px;
 }
@@ -383,7 +388,7 @@ button {
     width: 100%;
     float: left;
     font-size: 40px;
-    color: #f76d37;
+    color: #5a301f;
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -882,7 +887,7 @@ a:hover {
 .footer_section {
     width: 100%;
     float: left;
-    background-color: #252525;
+    background-color:#bf8f5a;
     height: auto;
     padding: 95px 0px;
 }
@@ -890,7 +895,7 @@ a:hover {
 .useful_text {
     width: 100%;
     font-size: 24px;
-    color: #ffffff;
+    color: #1a0101;
     margin-bottom: 15px;
     font-weight: bold;
 }
@@ -899,7 +904,7 @@ a:hover {
     width: 100%;
     float: left;
     font-size: 14px;
-    color: #ffffff;
+    color: #140101;
     margin: 0px;
 }
 
@@ -915,11 +920,11 @@ a:hover {
 
 .footer_menu li {
     font-size: 14px;
-    color: #ffffff;
+    color: #120202;
 }
 
 .footer_menu li a {
-    color: #ffffff;
+    color: #130101;
 }
 
 .footer_menu li a:hover {
@@ -930,7 +935,7 @@ a:hover {
     width: 30%;
     float: left;
     font-size: 14px;
-    color: #ffffff;
+    color: #1b0202;
     margin: 0px;
 }
 
@@ -946,12 +951,12 @@ a:hover {
 
 .location_text li {
     font-size: 14px;
-    color: #ffffff;
+    color: #080000;
     padding: 0px 0px 5px 0px;
 }
 
 .location_text li a {
-    color: #ffffff;
+    color: #140202;
 }
 
 .location_text li a:hover {
@@ -970,7 +975,7 @@ a:hover {
 .copyright_section {
     width: 100%;
     float: left;
-    background-color: #ffffff;
+    background-color: #0f0101;
     height: auto;
 }
 
@@ -978,7 +983,7 @@ a:hover {
     width: 100%;
     float: left;
     font-size: 16px;
-    color: #252525;
+    color: #d1d1ca;
     text-align: center;
     margin-left: 0px;
 }
