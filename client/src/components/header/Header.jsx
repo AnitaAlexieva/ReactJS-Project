@@ -1,32 +1,38 @@
+import { Link } from "react-router"
+
 export default function Header() {
     return(
         <div className="header_section">
          <div className="container-fluid">
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-               <div className="logo"><a href="index.html"><img className="img-logo" src="/images/logo2.png"/></a></div>
+               <div className="logo"><Link to="/"><img className="img-logo" src="/images/logo2.png"/></Link></div>
                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"aria-expanded="false" aria-label="Toggle navigation">
                <span className="navbar-toggler-icon"></span>
                </button>
                <div className="collapse navbar-collapse" id="navbarNav">
                   <ul className="navbar-nav ml-auto">
                      <li className="nav-item active">
-                        <a className="nav-link" href="index.html">Home</a>
+                        <Link className="nav-link" to="/">Home</Link>
                      </li>
                      <li className="nav-item">
-                        <a className="nav-link" href="about.html">About Us</a>
+                        <Link className="nav-link" to="/about">About Us</Link>
+                     </li>
+                     <li className="nav-item ">
+                        <Link className="nav-link" to="/">Register</Link>
+                     </li>  
+                     <li className="nav-item">
+                        <Link className="nav-link" to="/">Login</Link>
+                     </li>  
+                     <li className="nav-item ">
+                        <Link className="nav-link" to="/">Logout</Link>
                      </li>
                      <li className="nav-item">
-                        <a className="nav-link" href="gallery.html">Gallery</a>
+                        <Link className="nav-link" to="/gallery">Gallery</Link>
                      </li>
                      <li className="nav-item">
-                        <a className="nav-link" href="services.html">Services</a>
+                        <Link className="nav-link" to="/recipes">Recipes</Link>
                      </li>
-                     <li className="nav-item">
-                        <a className="nav-link" href="contact.html">Contact Us</a>
-                     </li>
-                     <li className="nav-item">
-                        <a className="nav-link" href="#"><i className="fa fa-search" aria-hidden="true"></i></a>
-                     </li>
+                    
                   </ul>
                </div>
             </nav>
