@@ -1,6 +1,5 @@
 import About from "./components/about/About"
 import Footer from "./components/footer.jsx/Footer"
-import Gallery from "./components/gallery/Gallery"
 import Header from "./components/header/Header"
 import Home from "./components/home/Home"
 import Recipes from "./components/recipes/Recipes"
@@ -15,7 +14,6 @@ function App() {
          <Routes>
             <Route index element={<Home/>} />
             <Route path="/about" element={<About />} />
-            <Route path="/gallery" element={<Gallery/>}/>
             <Route path="/recipes" element={<Recipes/>}/>
          </Routes>
   

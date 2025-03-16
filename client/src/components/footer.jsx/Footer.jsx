@@ -1,4 +1,5 @@
 import CopyRight from "../copyright/Copyright";
+import { Link } from "react-router";
 
 export default function Footer() {
     return(
@@ -14,11 +15,9 @@ export default function Footer() {
                   <h3 className="useful_text">Menu</h3>
                   <div className="footer_menu">
                      <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/about">About Us</Link></li>
+                        <li><Link to="recipes">Recipes</Link></li>
                      </ul>
                   </div>
                </div>
@@ -31,19 +30,19 @@ export default function Footer() {
                   <div className="location_text">
                      <ul>
                         <li>
-                           <a href="#">
-                           <i className="fa fa-map-marker" aria-hidden="true"></i><span className="padding_left_10">Address : Loram Ipusm</span>
-                           </a>
+                           <Link to="#">
+                           <i className="fa fa-map-marker" aria-hidden="true"></i><span className="padding_left_10">Address : Plovdiv, Bulgaria</span>
+                           </Link>
                         </li>
                         <li>
-                           <a href="#">
-                           <i className="fa fa-phone" aria-hidden="true"></i><span className="padding_left_10">Call : +01 1234567890</span>
-                           </a>
+                           <Link to="#">
+                           <i className="fa fa-phone" aria-hidden="true"></i><span className="padding_left_10">Call : +359 878604321</span>
+                           </Link>
                         </li>
                         <li>
-                           <a href="#">
-                           <i className="fa fa-envelope" aria-hidden="true"></i><span className="padding_left_10">Email : demo@gmail.com</span>
-                           </a>
+                           <Link to="#">
+                           <i className="fa fa-envelope" aria-hidden="true"></i><span className="padding_left_10">Email : ani@gmail.com</span>
+                           </Link>
                         </li>
                      </ul>
                   </div>
