@@ -20,6 +20,9 @@ export default function Header() {
                      <li className="nav-item">
                         <Link className="nav-link" to="/recipes">Recipes</Link>
                      </li>
+                     <li className="nav-item">
+                        <Link className="nav-link" to="/recipesDetails">Recipes Detail</Link>
+                     </li>
                      <div id="user">
                         <li className="nav-item ">
                             <Link className="nav-link" to="/logout">Logout</Link>
