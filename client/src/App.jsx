@@ -8,6 +8,7 @@ import Recipes from "./components/recipes/Recipes"
 import {Route, Routes} from 'react-router'
 import Register from "./components/register/Register"
 import CreateRecipe from "./components/create/CreateRecipe"
+import ErrorPage from "./components/error/ErrorPage"
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
             <Route path="/login" element={<Login/>}/>
             <Route path="/register" element={<Register/>} />
             <Route path="/createRecipe" element={<CreateRecipe/>}/>
+            <Route path="*" element={<ErrorPage/>}/>
          </Routes>
   
       <Footer/>
