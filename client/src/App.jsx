@@ -7,6 +7,7 @@ import Login from "./components/login/Login"
 import Recipes from "./components/recipes/Recipes"
 import {Route, Routes} from 'react-router'
 import Register from "./components/register/Register"
+import CreateRecipe from "./components/create/CreateRecipe"
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
             <Route path="/recipesDetails" element={<DetailsRecipe/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/register" element={<Register/>} />
+            <Route path="/createRecipe" element={<CreateRecipe/>}/>
          </Routes>
   
       <Footer/>
