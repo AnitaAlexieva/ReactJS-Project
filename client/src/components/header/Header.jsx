@@ -20,12 +20,15 @@ export default function Header() {
                      <li className="nav-item">
                         <Link className="nav-link" to="/recipes">Recipes</Link>
                      </li>
-                     <li className="nav-item">
-                        <Link className="nav-link" to="/login">Login</Link>
-                     </li>  
-                     <li className="nav-item ">
-                        <Link className="nav-link" to="/register">Register</Link>
-                     </li> 
+                    
+                     <div id="guest">
+                        <li className="nav-item">
+                           <Link className="nav-link" to="/login">Login</Link>
+                        </li>  
+                        <li className="nav-item ">
+                           <Link className="nav-link" to="/register">Register</Link>
+                        </li> 
+                     </div>
                      <div id="user">
                         <li className="nav-item ">
                             <Link className="nav-link" to="/logout">Logout</Link>

@@ -1,7 +1,9 @@
 .create {
-    background-color:wheat;
-    padding: 80px 0;
+    background-image:url(../images/back.jpg);
+    padding: 20px 0;
     text-align: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   
   .create-form {

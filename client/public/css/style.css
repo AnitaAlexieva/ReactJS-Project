@@ -265,9 +265,11 @@ button {
     color: #140101;
 }
 
-#user{
-    display: flex
-;
+#user { 
+    display: flex;
+}
+#guest { 
+    display: flex;
 }
 
 /* header section end */
