@@ -6,4 +6,7 @@ export default{
     getAll(){
         return request('GET', baseUrl);
     },
+    create(recipeData) {
+        return request('POST', baseUrl, recipeData)
+    }
 }
