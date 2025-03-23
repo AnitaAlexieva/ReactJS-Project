@@ -9,6 +9,7 @@ export default function CreateRecipe() {
             <input type="text" name="name" placeholder="Recipe Name" required/>
             <input type="email" name="category" placeholder="Category" required/>
             <input type="text" name="time" placeholder="Time" required/>
+            <input type="text" name="imageUrl" placeholder="Image Url" required/>
             <input type="text" name="ingredients" placeholder="Ingredients" required/>
             <textarea name="message" placeholder="Way of preparetion" rows="5"></textarea>
             <button type="submit">Submit</button>

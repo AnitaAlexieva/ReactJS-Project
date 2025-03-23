@@ -21,9 +21,6 @@ export default function Header() {
                         <Link className="nav-link" to="/recipes">Recipes</Link>
                      </li>
                      <li className="nav-item">
-                        <Link className="nav-link" to="/recipesDetails">Recipes Detail</Link>
-                     </li>
-                     <li className="nav-item">
                         <Link className="nav-link" to="/login">Login</Link>
                      </li>  
                      <li className="nav-item ">

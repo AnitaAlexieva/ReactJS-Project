@@ -29,7 +29,7 @@ export default function Recipes() {
                         </div>
                         <h3 className="decorate_text">20 Coffee Flavors</h3>
                         <p className="tation_text">Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea </p>
-                        <div className="readmore_bt"><a href="#">Read More</a></div>
+                        <div className="readmore_bt"><a href="/recipes/details">Read More</a></div>
                      </div>
                   </div>
                   <div className="col-lg-4 col-sm-12 col-md-4">

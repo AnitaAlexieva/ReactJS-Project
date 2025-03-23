@@ -1,28 +1,49 @@
-import './details.css'
+import './details.css';
 
-export default function DetailsRecipe() {
-    return(
-        <div className="main">
-        <ul className="cards">
+export default function RecipeDetails() {
+    const recipe = {
+        name: "Spaghetti Carbonara",
+        category: "Pasta",
+        time: "30 minutes",
+        ingredients: [
+            "200g spaghetti",
+            "100g pancetta",
+            "2 eggs",
+            "50g grated parmesan",
+            "2 cloves garlic",
+            "Salt & black pepper",
+            "Olive oil"
+        ],
+        preparation: "Cook spaghetti. Fry pancetta with garlic. Mix eggs and parmesan. Combine everything with pasta. Serve hot!",
+        imageUrl: "/images/pasta.jpg"
+    };
 
-          <li className="cards_item" id="item_salad">
-            <div className="card">
-              <div className="card_price">$9</div>
-              <div className="card_image"><img src="https://assets.codepen.io/652/photo-1468777675496-5782faaea55b.jpeg" alt="mixed vegetable salad in a mason jar. "/></div>
-              <div className="card_content">
-                <h2 className="card_title">Farmstand Salad</h2>
-                <div className="card_text">
-                  <p>Dig into the freshest veggies of the season! This salad-in-a-jar features a mixture of leafy greens and seasonal vegetables, fresh from the farmer's market.</p>
-                  <p>Served with your choice of dressing on the side: housemade ranch, cherry balsamic vinaigrette, creamy chipotle, avocado green goddess, or honey mustard. Add your choice of protein for $2 more. </p>
+    return (
+        <section className="recipe-details">
+            <div className="details-container">
+                {/* Left Side: Recipe Info */}
+                <div className="left-side">
+                    <h1>{recipe.name}</h1>
+                    <p className="category"><strong>Category:</strong> {recipe.category}</p>
+                    <p className="time"><strong>Preparation Time:</strong> {recipe.time}</p>
+
+                    <h3>Preparation</h3>
+                    <p className="preparation">{recipe.preparation}</p>
+
+                    <a href="/" className="back-button">Back to Home</a>
                 </div>
-                <div className='buttons'>
-                    <button className="commsentBtn">Comment</button>
-                </div>
-              </div>
+
+                {/* Right Side: Image + Ingredients */}
+                <div className="right-side">
+    <img className="recipe-image" src={recipe.imageUrl} alt={recipe.name} />
+    <h3>Ingredients</h3>
+    <ul className="ingredients-container">
+        {recipe.ingredients.map((ingredient, index) => (
+            <li key={index}>{ingredient}</li>
+        ))}
+    </ul>
+</div>
             </div>
-          </li>
-      
-        </ul>
-      </div>
-    )
+        </section>
+    );
 }
