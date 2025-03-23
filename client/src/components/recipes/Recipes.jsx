@@ -1,4 +1,14 @@
+import { useEffect } from "react"
+import recipeServices from "../../services/recipeServices"
+
 export default function Recipes() {
+   useEffect(() =>{
+      recipeServices.getAll()
+         .then(result =>{
+            console.log(result)
+         })
+   })
+   
     return(
        <div className="services_section layout_padding">
          <div className="container">
