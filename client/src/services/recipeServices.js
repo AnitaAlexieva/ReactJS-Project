@@ -1,12 +1,13 @@
-import { request } from "../utils/requester";
+import request from "../utils/request";
+
 
 const baseUrl = 'http://localhost:3030/jsonstore/recipes';
 
 export default{
     getAll(){
-        return request('GET', baseUrl);
+        return request.post(baseUrl)
     },
     create(recipeData) {
-        return request('POST', baseUrl, recipeData)
+        return request.post(baseUrl, recipeData)
     }
 }
