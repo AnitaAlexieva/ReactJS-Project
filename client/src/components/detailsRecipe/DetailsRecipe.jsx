@@ -47,6 +47,7 @@ export default function RecipeDetails() {
           <p className="preparation">{recipe.preparation}</p>
 
           <div className="action-buttons">
+            <Link to={`/recipes/${recipeId}/edit`} className="edit-button">Edit</Link>
             <button 
                 onClick={gameDeleteClickHandler}
                 className="delete-button"
