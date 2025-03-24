@@ -3,8 +3,8 @@ import recipeServices from '../../services/recipeServices';
 import './create.css'
 
 export default function CreateRecipe() {
+  const navigate = useNavigate();
   const submitAction = async (formData) =>{
-    const navigate = useNavigate();
     const recipeData = Object.fromEntries(formData);
 
     await recipeServices.create(recipeData)

@@ -1,13 +1,19 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import recipeServices from "../../services/recipeServices"
+import RecipeItem from "./recipes-item/RecipeItem"
 
 export default function Recipes() {
+
+   const [recipes, setRecipes] = useState([])
+
    useEffect(() =>{
       recipeServices.getAll()
          .then(result =>{
-            console.log(result)
+            setRecipes(result)
          })
-   })
+   },[])
+
+   console.log(recipes)
    
     return(
        <div className="services_section layout_padding">
@@ -18,42 +24,9 @@ export default function Recipes() {
                   <p className="services_text">Typesetting industry lorem Ipsum is simply dummy text of the </p>
                </div>
             </div>
-            <div className="services_section_2">
-               <div className="row">
-                  <div className="col-lg-4 col-sm-12 col-md-4">
-                     <div className="box_main active">
-                        <div className="house_icon">
-                           <img src="/images/recipe1.jpg" className="image_1"/>
-                           <img src="/images/recipe1.jpg" className="image_2"/>
-                        </div>
-                        <h3 className="decorate_text">Original Coffee</h3>
-                        <p className="tation_text">Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea </p>
-                        <div className="readmore_bt"><a href="#">Read More</a></div>
-                     </div>
-                  </div>
-                  <div className="col-lg-4 col-sm-12 col-md-4">
-                     <div className="box_main">
-                        <div className="house_icon">
-                           <img src="/images/about.jpg" className="image_1"/>
-                           <img src="/images/about.jpg" className="image_2"/>
-                        </div>
-                        <h3 className="decorate_text">20 Coffee Flavors</h3>
-                        <p className="tation_text">Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea </p>
-                        <div className="readmore_bt"><a href="/recipes/details">Read More</a></div>
-                     </div>
-                  </div>
-                  <div className="col-lg-4 col-sm-12 col-md-4">
-                     <div className="box_main">
-                        <div className="house_icon">
-                           <img src="/images/recipe2.jpg" className="image_1"/>
-                           <img src="/images/recipe2.jpg" className="image_2"/>
-                        </div>
-                        <h3 className="decorate_text">Pleasant Abient</h3>
-                        <p className="tation_text">Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea </p>
-                        <div className="readmore_bt"><a href="#">Read More</a></div>
-                     </div>
-                  </div>
-               </div>
+            <div className="recipes-container">
+
+            {recipes.map(recipe => <RecipeItem key={recipe._id} {...recipe}/>)}
             </div>
          </div>
       </div>
