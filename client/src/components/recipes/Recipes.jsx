@@ -25,8 +25,18 @@ export default function Recipes() {
                </div>
             </div>
             <div className="recipes-container">
-
-            {recipes.map(recipe => <RecipeItem key={recipe._id} {...recipe}/>)}
+               {recipes.length > 0 ? (
+                  recipes.map(recipe => <RecipeItem key={recipe._id} {...recipe} />)
+               ) : (
+                  <div className="no-recipes">
+                     <p className="services_text">
+                        Our recipe collection is currently empty, but don’t worry! We are busy cooking up some 
+                        delicious inspirations for you. Soon, you’ll find a delightful variety of dishes to try, 
+                        from comforting classics to exciting new flavors. Stay tuned and get ready to embark on 
+                        a culinary adventure!
+                     </p>
+                  </div>
+               )}
             </div>
          </div>
       </div>
