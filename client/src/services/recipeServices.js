@@ -16,5 +16,8 @@ export default{
     },
     getOne(recipeId){
         return request.get(`${baseUrl}/${recipeId}`)
+    },
+    delete(recipeId){
+        return request.delete(`${baseUrl}/${recipeId}`)
     }
 }

@@ -593,7 +593,7 @@ a:hover {
 
 .house_icon img {
     max-width: 100%;
-    max-height: 200px;
+    height: 200px;
 }
 
 .box_main .house_icon .image_2 {

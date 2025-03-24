@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import './details.css';
-import { useParams } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router';
 import recipeServices from '../../services/recipeServices';
 
 export default function RecipeDetails() {
+  const navigate = useNavigate();
   const [recipe, setRecipe] = useState({
     ingredients :[],
   });
@@ -24,6 +25,15 @@ export default function RecipeDetails() {
     })();
   }, [recipeId]);
 
+  const gameDeleteClickHandler = async() =>{
+      const hasConfirm = confirm(`Are you sure you want to delete ${recipe.title}?`);
+
+      if(!hasConfirm){
+        return;
+      }
+      await recipeServices.delete(recipeId);
+      navigate('/recipes')
+  }
 
   return (
     <section className="recipe-details">
@@ -36,7 +46,14 @@ export default function RecipeDetails() {
           <h3>Preparation</h3>
           <p className="preparation">{recipe.preparation}</p>
 
-          <a href="/" className="back-button">Back to Home</a>
+          <div className="action-buttons">
+            <button 
+                onClick={gameDeleteClickHandler}
+                className="delete-button"
+                >
+                  Delete
+                </button>
+          </div>
         </div>
 
         <div className="right-side">
