@@ -19,5 +19,8 @@ export default{
     },
     delete(recipeId){
         return request.delete(`${baseUrl}/${recipeId}`)
+    },
+    edit(recipeId, recipeData){
+        return request.put(`${baseUrl}/${recipeId}`, {...recipeData, _id:recipeId} )
     }
 }

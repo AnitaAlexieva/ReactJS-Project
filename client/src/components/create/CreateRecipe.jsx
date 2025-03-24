@@ -21,7 +21,7 @@ export default function CreateRecipe() {
             <input type="text" name="time" placeholder="Total Time" required/>
             <input type="text" name="imageUrl" placeholder="Image Url" required/>
             <input type="text" name="ingredients" placeholder="Ingredients" required/>
-            <textarea name="message" placeholder="Way of preparetion" rows="5"></textarea>
+            <textarea name="preparation" placeholder="Way of preparetion" rows="5"></textarea>
             <button type="submit">Submit</button>
           </form>
         </div>
