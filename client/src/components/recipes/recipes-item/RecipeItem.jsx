@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 export default function RecipeItem({
     _id,
     name,
@@ -15,7 +17,7 @@ export default function RecipeItem({
                  </div>
                  <h3 className="decorate_text">{name}</h3>
                  <p className="tation_text">{category}</p>
-                 <div className="readmore_bt"><a href="#">Read More</a></div>
+                 <div className="readmore_bt"><Link to={`/recipes/${_id}/details`}>Read More</Link></div>
               </div>
            </div>
            

@@ -13,5 +13,8 @@ export default{
     },
     create(recipeData) {
         return request.post(baseUrl, recipeData)
+    },
+    getOne(recipeId){
+        return request.get(`${baseUrl}/${recipeId}`)
     }
 }
