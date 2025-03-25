@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router';
 import recipeServices from '../../services/recipeServices';
 import ShowComments from '../show-comments/ShowComments';
 import CreateComment from '../create-comment/CreateComment';
+import commentsService from '../../services/commentsService';
 
 export default function RecipeDetails({
   email,
@@ -12,6 +13,7 @@ export default function RecipeDetails({
   const [recipe, setRecipe] = useState({
     ingredients :[],
   });
+  const [comments, setComments] = useState([]);
   const {recipeId} = useParams();
 
   useEffect(() => {
@@ -26,6 +28,9 @@ export default function RecipeDetails({
       };
   
       setRecipe(fixedResult);
+
+      const allComments = await commentsService.getAll(recipeId)
+      setComments(allComments);
     })();
   }, [recipeId]);
 
@@ -39,6 +44,9 @@ export default function RecipeDetails({
       navigate('/recipes')
   }
 
+  const commentCreateHandler = (newComment) =>{
+      setComments(state=>[...state, newComment])
+  }
   return (
     <section className="recipe-details">
       <div className="details-container">
@@ -53,10 +61,14 @@ export default function RecipeDetails({
 
             {/* Comments Section */}
             <div className="comments-section">
-            <ShowComments/>
+            <ShowComments  comments={comments}/>
 
             {/* Comment Form */}
-            <CreateComment email={email} recipeId={recipeId} />
+            <CreateComment 
+              email={email} 
+              recipeId={recipeId} 
+              onCreate = {commentCreateHandler}
+            />
 
             <div className="action-buttons">
             <Link to={`/recipes/${recipeId}/edit`} className="edit-button">Edit</Link>

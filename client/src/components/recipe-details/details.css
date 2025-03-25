@@ -81,6 +81,7 @@ h1 {
 
 .comment p {
   margin: 5px 0;
+  font-size: 15px;
 }
 
 .comment-date {
@@ -116,7 +117,12 @@ h1 {
 .comment-button:hover {
   background-color: #d35400;
 }
-
+li.li-comment{
+  border: 1px solid orange;
+  border-radius: 20px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
 
 /* Common styles for both Edit & Delete buttons */
 .action-buttons a,
