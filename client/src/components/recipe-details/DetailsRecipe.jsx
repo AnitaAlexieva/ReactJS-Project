@@ -5,7 +5,9 @@ import recipeServices from '../../services/recipeServices';
 import ShowComments from '../show-comments/ShowComments';
 import CreateComment from '../create-comment/CreateComment';
 
-export default function RecipeDetails() {
+export default function RecipeDetails({
+  email,
+}) {
   const navigate = useNavigate();
   const [recipe, setRecipe] = useState({
     ingredients :[],
@@ -54,7 +56,7 @@ export default function RecipeDetails() {
             <ShowComments/>
 
             {/* Comment Form */}
-            <CreateComment/>
+            <CreateComment email={email} />
 
             <div className="action-buttons">
             <Link to={`/recipes/${recipeId}/edit`} className="edit-button">Edit</Link>

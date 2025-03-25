@@ -1,8 +1,16 @@
-export default function CreateComment() {
+export default function CreateComment({
+    email,
+}) {
+    const commentAction = (formData) =>{
+        const comment = formData.get('comment');
+
+        console.log(comment);
+        console.log(email)
+    }
     return (
-        <div className="comment-form">
-            <textarea placeholder="Write a comment..." />
+        <form action={commentAction} className="comment-form">
+            <textarea name='comment' placeholder="Write a comment..." />
             <button className="comment-button">Post Comment</button>
-        </div>
+        </form>
     )
 }
