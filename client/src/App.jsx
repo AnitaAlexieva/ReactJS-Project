@@ -1,5 +1,5 @@
 import About from "./components/about/About"
-import DetailsRecipe from "./components/detailsRecipe/DetailsRecipe"
+import DetailsRecipe from "./components/recipe-details/DetailsRecipe"
 import Footer from "./components/footer.jsx/Footer"
 import Header from "./components/header/Header"
 import Home from "./components/home/Home"

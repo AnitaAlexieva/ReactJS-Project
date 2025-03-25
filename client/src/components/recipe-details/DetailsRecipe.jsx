@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import './details.css';
 import { Link, useNavigate, useParams } from 'react-router';
 import recipeServices from '../../services/recipeServices';
+import ShowComments from '../show-comments/ShowComments';
+import CreateComment from '../create-comment/CreateComment';
 
 export default function RecipeDetails() {
   const navigate = useNavigate();
@@ -25,7 +27,7 @@ export default function RecipeDetails() {
     })();
   }, [recipeId]);
 
-  const gameDeleteClickHandler = async() =>{
+  const recipeDeleteClickHandler = async() =>{
       const hasConfirm = confirm(`Are you sure you want to delete ${recipe.title}?`);
 
       if(!hasConfirm){
@@ -49,29 +51,15 @@ export default function RecipeDetails() {
 
             {/* Comments Section */}
             <div className="comments-section">
-            <h3>Comments</h3>
-
-            {/* Example Comments */}
-            <div className="comment">
-              <p><strong>JohnDoe:</strong> This recipe is amazing! My family loved it. 😍</p>
-              <span className="comment-date">March 24, 2025</span>
-            </div>
-
-            <div className="comment">
-              <p><strong>CookingQueen:</strong> Super easy to follow! Thank you. 🍝</p>
-              <span className="comment-date">March 23, 2025</span>
-            </div>
+            <ShowComments/>
 
             {/* Comment Form */}
-            <div className="comment-form">
-              <textarea placeholder="Write a comment..." />
-              <button className="comment-button">Post Comment</button>
-            </div>
+            <CreateComment/>
 
             <div className="action-buttons">
             <Link to={`/recipes/${recipeId}/edit`} className="edit-button">Edit</Link>
             <button 
-                onClick={gameDeleteClickHandler}
+                onClick={recipeDeleteClickHandler}
                 className="delete-button"
                 >
                   Delete
