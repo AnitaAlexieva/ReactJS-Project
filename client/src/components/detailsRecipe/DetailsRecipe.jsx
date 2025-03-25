@@ -46,7 +46,29 @@ export default function RecipeDetails() {
           <h3>Preparation</h3>
           <p className="preparation">{recipe.preparation}</p>
 
-          <div className="action-buttons">
+
+            {/* Comments Section */}
+            <div className="comments-section">
+            <h3>Comments</h3>
+
+            {/* Example Comments */}
+            <div className="comment">
+              <p><strong>JohnDoe:</strong> This recipe is amazing! My family loved it. 😍</p>
+              <span className="comment-date">March 24, 2025</span>
+            </div>
+
+            <div className="comment">
+              <p><strong>CookingQueen:</strong> Super easy to follow! Thank you. 🍝</p>
+              <span className="comment-date">March 23, 2025</span>
+            </div>
+
+            {/* Comment Form */}
+            <div className="comment-form">
+              <textarea placeholder="Write a comment..." />
+              <button className="comment-button">Post Comment</button>
+            </div>
+
+            <div className="action-buttons">
             <Link to={`/recipes/${recipeId}/edit`} className="edit-button">Edit</Link>
             <button 
                 onClick={gameDeleteClickHandler}
@@ -54,6 +76,7 @@ export default function RecipeDetails() {
                 >
                   Delete
                 </button>
+          </div>
           </div>
         </div>
 
