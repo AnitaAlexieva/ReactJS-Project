@@ -10,9 +10,14 @@ import Register from "./components/register/Register"
 import CreateRecipe from "./components/create/CreateRecipe"
 import ErrorPage from "./components/error/ErrorPage"
 import EditRecipe from "./components/edit/EditRecipe"
+import { useState } from "react"
 
 function App() {
+  const  [email, setEmail] = useState();
 
+  const userLoginHandler = (email) =>{
+    setEmail(email);
+  }
   return (
     <>  
       <Header/>
@@ -23,7 +28,7 @@ function App() {
             <Route path="/recipes" element={<Recipes/>}/>
             <Route path="/recipes/:recipeId/details" element={<DetailsRecipe/>}/>
             <Route path="/recipes/:recipeId/edit" element={<EditRecipe/>}/>
-            <Route path="/login" element={<Login/>}/>
+            <Route path="/login" element={<Login onLogin={userLoginHandler}/>}/>
             <Route path="/register" element={<Register/>} />
             <Route path="/createRecipe" element={<CreateRecipe/>}/>
             <Route path="*" element={<ErrorPage/>}/>
