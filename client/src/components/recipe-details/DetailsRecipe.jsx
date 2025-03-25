@@ -56,7 +56,7 @@ export default function RecipeDetails({
             <ShowComments/>
 
             {/* Comment Form */}
-            <CreateComment email={email} />
+            <CreateComment email={email} recipeId={recipeId} />
 
             <div className="action-buttons">
             <Link to={`/recipes/${recipeId}/edit`} className="edit-button">Edit</Link>
