@@ -6,28 +6,22 @@ import ShowComments from '../show-comments/ShowComments';
 import CreateComment from '../create-comment/CreateComment';
 import commentsService from '../../services/commentsService';
 import { UserContext } from '../../contexts/UserContext';
+import { useOneRecipe } from '../../api/recipeApi';
 
 export default function RecipeDetails() {
   const navigate = useNavigate();
   const {email} = useContext(UserContext);
-  const [recipe, setRecipe] = useState({
-    ingredients :[],
-  });
+
   const [comments, setComments] = useState([]);
   const {recipeId} = useParams();
-
+ 
+  const recipe = useOneRecipe(recipeId);
+  
   useEffect(() => {
     (async () => {
-      const result = await recipeServices.getOne(recipeId);
-  
-      const fixedResult = {
-        ...result,
-        ingredients: typeof result.ingredients === "string"
-          ? result.ingredients.split(",").map(item => item.trim()) 
-          : result.ingredients
-      };
-  
-      setRecipe(fixedResult);
+      if(!recipeId){
+        return;
+      }
 
       const allComments = await commentsService.getAll(recipeId)
       setComments(allComments);

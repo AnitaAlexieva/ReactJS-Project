@@ -55,3 +55,24 @@ export const useAllRecipes = () =>{
         recipes
     }
 }
+
+export const useOneRecipe = (recipeId) =>{
+    const [recipe, setRecipe] = useState({});
+
+    useEffect(() =>{
+        request.get(`${baseUrl}/${recipeId}`)
+        .then(result => {
+            // Ако `ingredients` е string, го конвертираме в масив
+            const fixedRecipe = {
+                ...result,
+                ingredients: typeof result.ingredients === "string"
+                    ? result.ingredients.split(",").map(i => i.trim())
+                    : result.ingredients
+            };
+            setRecipe(fixedRecipe);
+        })
+
+    }, [recipeId])
+
+    return recipe;
+}
