@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import request from "../utils/request";
 import { UserContext } from "../contexts/UserContext";
 
@@ -40,5 +40,18 @@ export const useCreateRecipe = () =>{
     
     return{
         create,
+    }
+}
+
+export const useAllRecipes = () =>{
+    const [recipes, setRecipes] = useState([]);
+
+    useEffect(() =>{
+        request.get(baseUrl)
+            .then(setRecipes)
+    },[]);
+
+    return{
+        recipes
     }
 }

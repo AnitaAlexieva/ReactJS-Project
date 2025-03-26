@@ -1,7 +1,7 @@
 import request from "../utils/request";
 
 
-const baseUrl = 'http://localhost:3030/data/recipess';
+const baseUrl = 'http://localhost:3030/jsonstore/recipes';
 
 export default{
     async getAll(){

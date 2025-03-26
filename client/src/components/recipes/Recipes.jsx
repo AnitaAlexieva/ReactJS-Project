@@ -1,17 +1,11 @@
 import { useEffect, useState } from "react"
 import recipeServices from "../../services/recipeServices"
 import RecipeItem from "./recipes-item/RecipeItem"
+import { useAllRecipes } from "../../api/recipeApi"
 
 export default function Recipes() {
 
-   const [recipes, setRecipes] = useState([])
-
-   useEffect(() =>{
-      recipeServices.getAll()
-         .then(result =>{
-            setRecipes(result)
-         })
-   },[])
+   const {recipes} = useAllRecipes();
 
    console.log(recipes)
    
