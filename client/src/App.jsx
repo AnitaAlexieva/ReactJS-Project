@@ -11,6 +11,7 @@ import CreateRecipe from "./components/create/CreateRecipe"
 import ErrorPage from "./components/error/ErrorPage"
 import EditRecipe from "./components/edit/EditRecipe"
 import { useState } from "react"
+import { UserContext } from "./contexts/UserContext"
 
 function App() {
   const  [authData, setAuthData] = useState({});
@@ -20,21 +21,23 @@ function App() {
   }
   return (
     <>  
-      <Header/>
+    <UserContext.Provider value={{...authData, userLoginHandler}}>
+        <Header/>
 
-         <Routes>
-            <Route index element={<Home/>} />
-            <Route path="/about" element={<About />} />
-            <Route path="/recipes" element={<Recipes/>}/>
-            <Route path="/recipes/:recipeId/details" element={<DetailsRecipe email={authData.email}/>}/>
-            <Route path="/recipes/:recipeId/edit" element={<EditRecipe/>}/>
-            <Route path="/login" element={<Login onLogin={userLoginHandler}/>}/>
-            <Route path="/register" element={<Register/>} />
-            <Route path="/createRecipe" element={<CreateRecipe/>}/>
-            <Route path="*" element={<ErrorPage/>}/>
-         </Routes>
-  
-      <Footer/>
+          <Routes>
+              <Route index element={<Home/>} />
+              <Route path="/about" element={<About />} />
+              <Route path="/recipes" element={<Recipes/>}/>
+              <Route path="/recipes/:recipeId/details" element={<DetailsRecipe/>}/>
+              <Route path="/recipes/:recipeId/edit" element={<EditRecipe/>}/>
+              <Route path="/login" element={<Login/>}/>
+              <Route path="/register" element={<Register/>} />
+              <Route path="/createRecipe" element={<CreateRecipe/>}/>
+              <Route path="*" element={<ErrorPage/>}/>
+          </Routes>
+    
+        <Footer/>
+    </UserContext.Provider>
     </>
   )
 }

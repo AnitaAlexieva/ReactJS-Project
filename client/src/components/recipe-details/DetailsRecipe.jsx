@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './details.css';
 import { Link, useNavigate, useParams } from 'react-router';
 import recipeServices from '../../services/recipeServices';
 import ShowComments from '../show-comments/ShowComments';
 import CreateComment from '../create-comment/CreateComment';
 import commentsService from '../../services/commentsService';
+import { UserContext } from '../../contexts/UserContext';
 
-export default function RecipeDetails({
-  email,
-}) {
+export default function RecipeDetails() {
   const navigate = useNavigate();
+  const {email} = useContext(UserContext);
   const [recipe, setRecipe] = useState({
     ingredients :[],
   });
