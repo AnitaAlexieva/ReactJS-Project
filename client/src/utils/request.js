@@ -16,6 +16,10 @@ export const request = async (method, URL, data, options = {}) =>{
     }
 
     const response = await fetch(URL, options);
+    const responseContentType = response.headers.get('Content-Type');
+    if(!responseContentType){
+        return
+    }
     const result = await response.json();
 
     return result;
