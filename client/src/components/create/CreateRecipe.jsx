@@ -1,13 +1,17 @@
-import { useNavigate } from 'react-router';
-import recipeServices from '../../services/recipeServices';
 import './create.css'
+import { useNavigate } from 'react-router';
+import { useCreateRecipe } from '../../api/recipeApi';
+
 
 export default function CreateRecipe() {
   const navigate = useNavigate();
-  const submitAction = async (formData) =>{
+  const {create} = useCreateRecipe();
+
+  const submitAction = async(formData) =>{
+
     const recipeData = Object.fromEntries(formData);
 
-    await recipeServices.create(recipeData)
+    await create(recipeData);
 
     navigate('/recipes')
   }
