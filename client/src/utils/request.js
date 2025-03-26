@@ -3,12 +3,13 @@ export const request = async (method, URL, data, options = {}) =>{
     if(method !== 'GET'){
         options.method = method  
     }
-    
+
     if(data){
         options ={
             ...options,
             headers:{
                 'Content-Type':'application/json',
+                ...options.headers,
             },
             body:JSON.stringify(data),
         }

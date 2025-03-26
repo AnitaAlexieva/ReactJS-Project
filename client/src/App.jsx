@@ -12,6 +12,7 @@ import ErrorPage from "./components/error/ErrorPage"
 import EditRecipe from "./components/edit/EditRecipe"
 import { useState } from "react"
 import { UserContext } from "./contexts/UserContext"
+import Logout from "./components/logout/Logout"
 
 function App() {
   const  [authData, setAuthData] = useState({});
@@ -34,6 +35,7 @@ function App() {
               <Route path="/register" element={<Register/>} />
               <Route path="/createRecipe" element={<CreateRecipe/>}/>
               <Route path="*" element={<ErrorPage/>}/>
+              <Route path="/logout" element={<Logout/>}/>
           </Routes>
     
         <Footer/>
