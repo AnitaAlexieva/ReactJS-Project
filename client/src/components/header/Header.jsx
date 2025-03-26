@@ -1,6 +1,10 @@
+import { useContext } from "react"
 import { Link } from "react-router"
+import { UserContext } from "../../contexts/UserContext"
 
 export default function Header() {
+   const {email} = useContext(UserContext);
+   
     return(
         <div className="header_section">
          <div className="container-fluid">
@@ -11,32 +15,27 @@ export default function Header() {
                </button>
                <div className="collapse navbar-collapse" id="navbarNav">
                   <ul className="navbar-nav ml-auto">
-                     <li className="nav-item active">
-                        <Link className="nav-link" to="/">Home</Link>
-                     </li>
-                     <li className="nav-item">
-                        <Link className="nav-link" to="/about">About Us</Link>
-                     </li>
-                     <li className="nav-item">
-                        <Link className="nav-link" to="/recipes">Recipes</Link>
-                     </li>
                     
-                     <div id="guest">
-                        <li className="nav-item">
-                           <Link className="nav-link" to="/login">Login</Link>
-                        </li>  
-                        <li className="nav-item ">
-                           <Link className="nav-link" to="/register">Register</Link>
-                        </li> 
-                     </div>
-                     <div id="user">
-                        <li className="nav-item ">
-                            <Link className="nav-link" to="/logout">Logout</Link>
-                        </li>
-                        <li className="nav-item ">
-                            <Link className="nav-link" to="/createRecipe">Create Recipe</Link>
-                        </li>
-                     </div>
+                        <Link className="nav-link" to="/">Home</Link>                  
+                        <Link className="nav-link" to="/about">About Us</Link>                     
+                        <Link className="nav-link" to="/recipes">Recipes</Link>
+                     {email ? 
+                     (
+                        <div id="user">               
+                           <Link className="nav-link" to="/createRecipe">Create Recipe</Link>                       
+                           <Link className="nav-link" to="/logout">Logout</Link>  
+                           <li>{email} </li>                    
+                        </div>
+                     )
+                     :(
+                        
+                        <div id="guest">                    
+                           <Link className="nav-link" to="/login">Login</Link>                       
+                           <Link className="nav-link" to="/register">Register</Link>                        
+                        </div>
+                     )
+                  
+                  }
                       
                   </ul>
                </div>
