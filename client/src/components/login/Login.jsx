@@ -1,23 +1,26 @@
 import { Link, useNavigate } from 'react-router';
 import './login.css'
 import { useActionState } from 'react';
+import { useLogin } from '../../api/authApi';
 
 export default function Login({
   onLogin
 }) {
   // const navigate = useNavigate();
+  const {login} = useLogin();
   
-  const loginHandler = (preciousState, formData) =>{
+  const loginHandler = async (_, formData) =>{
     const values = Object.fromEntries(formData);
     
-    onLogin(values.email);
+    const authData = await login(values.email, values.password);
+
+    onLogin(authData);
     // navigate('/recipes')
     return values;
   }
 
-  const [values, loginAction, isPending] = useActionState(loginHandler, {email:'', password: ''});
+  const [_, loginAction, isPending] = useActionState(loginHandler, {email:'', password: ''});
 
-  console.log(values)
     return(
         
         <div className="wrapper">
