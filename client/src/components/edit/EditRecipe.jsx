@@ -1,22 +1,18 @@
 import { useNavigate, useParams } from 'react-router'
 import './edit.css'
-import { useEffect, useState } from 'react';
-import recipeServices from '../../services/recipeServices';
+import { useEditRecipe, useOneRecipe } from '../../api/recipeApi';
 
 export default function EditRecipe() {
   const navigate = useNavigate();
   const {recipeId} = useParams();
-  const [ recipe, setRecipe] = useState({});
+  const recipe= useOneRecipe(recipeId);
+  const {edit} = useEditRecipe();
 
-  useEffect(() =>{
-        recipeServices.getOne(recipeId)
-            .then(setRecipe)
-  },[recipeId])
 
   const formAction = async (formData) =>{
     const recipeData = Object.fromEntries(formData);
 
-    await recipeServices.edit(recipeId, recipeData);
+    await edit(recipeId, recipeData);
 
     navigate(`/recipes/${recipeId}/details`)
   }

@@ -1,21 +1,21 @@
-import { useContext, useEffect, useState } from 'react';
+import {  useEffect, useState } from 'react';
 import './details.css';
 import { Link, useNavigate, useParams } from 'react-router';
-import recipeServices from '../../services/recipeServices';
 import ShowComments from '../show-comments/ShowComments';
 import CreateComment from '../create-comment/CreateComment';
 import commentsService from '../../services/commentsService';
-import { UserContext } from '../../contexts/UserContext';
-import { useOneRecipe } from '../../api/recipeApi';
+import { useDeleteRecipe, useOneRecipe } from '../../api/recipeApi';
+import useAuth from '../../hooks/useAuth';
 
 export default function RecipeDetails() {
   const navigate = useNavigate();
-  const {email} = useContext(UserContext);
+  const {email} = useAuth();
 
   const [comments, setComments] = useState([]);
   const {recipeId} = useParams();
  
   const recipe = useOneRecipe(recipeId);
+  const {deleteRecipe} = useDeleteRecipe();
   
   useEffect(() => {
     (async () => {
@@ -34,7 +34,7 @@ export default function RecipeDetails() {
       if(!hasConfirm){
         return;
       }
-      await recipeServices.delete(recipeId);
+      await deleteRecipe(recipeId);
       navigate('/recipes')
   }
 
