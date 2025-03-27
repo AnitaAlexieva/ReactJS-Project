@@ -3,7 +3,7 @@ import request from "../utils/request";
 import useAuth from "../hooks/useAuth";
 
 
-const baseUrl = 'http://localhost:3030/data/recipess';
+const baseUrl = 'http://localhost:3030/data/recipes';
 
 export default{
     async getAll(){

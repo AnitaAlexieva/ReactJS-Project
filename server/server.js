@@ -1346,59 +1346,41 @@
     	}
     };
     var seedData = {
-    	recipes: {
-    		"3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			name: "Easy Lasagna",
-    			img: "assets/lasagna.jpg",
-    			ingredients: [
-    				"1 tbsp Ingredient 1",
-    				"2 cups Ingredient 2",
-    				"500 g  Ingredient 3",
-    				"25 g Ingredient 4"
-    			],
-    			steps: [
-    				"Prepare ingredients",
-    				"Mix ingredients",
-    				"Cook until done"
-    			],
-    			_createdOn: 1613551279012
-    		},
-    		"8f414b4f-ab39-4d36-bedb-2ad69da9c830": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			name: "Grilled Duck Fillet",
-    			img: "assets/roast.jpg",
-    			ingredients: [
-    				"500 g  Ingredient 1",
-    				"3 tbsp Ingredient 2",
-    				"2 cups Ingredient 3"
-    			],
-    			steps: [
-    				"Prepare ingredients",
-    				"Mix ingredients",
-    				"Cook until done"
-    			],
-    			_createdOn: 1613551344360
-    		},
-    		"985d9eab-ad2e-4622-a5c8-116261fb1fd2": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			name: "Roast Trout",
-    			img: "assets/fish.jpg",
-    			ingredients: [
-    				"4 cups Ingredient 1",
-    				"1 tbsp Ingredient 2",
-    				"1 tbsp Ingredient 3",
-    				"750 g  Ingredient 4",
-    				"25 g Ingredient 5"
-    			],
-    			steps: [
-    				"Prepare ingredients",
-    				"Mix ingredients",
-    				"Cook until done"
-    			],
-    			_createdOn: 1613551388703
-    		}
-    	},
+    	recipes: [
+            {
+                "_ownerId": "28a41145-046e-4136-a39c-eaf17e593664",
+                "name": "Thai Red Curry Noodle Soup",
+                "category": "Soup",
+                "time": "50",
+                "imageUrl": "https://s23209.pcdn.co/wp-content/uploads/2018/04/241218_DD_thai-red-curry-noodle-soup_584edit.jpg",
+                "ingredients": "3 cloves garlic, 1 onion, 4 ounces rice noodles, 1 tablespoon fish sauce,  chicken breasts",
+                "preparation": "Heat olive oil in a large stockpot or Dutch oven over medium heat. Season chicken with salt and pepper, to taste. Add chicken to the stockpot and cook until golden, about 2-3 minutes; set aside.\nAdd garlic, bell pepper and onion. Cook, stirring occasionally, until tender, about 3-4 minutes.",
+                "_createdOn": 1743060886165,
+                "_id": "c6fbf916-3fa4-4cbf-88db-d2319e3940ff"
+            },
+            {
+                "_ownerId": "28a41145-046e-4136-a39c-eaf17e593664",
+                "name": "Spaghetti Carbonara",
+                "category": "Pasta",
+                "time": "20",
+                "imageUrl": "https://easyweeknight.com/wp-content/uploads/2019/02/spaghetti-carbonara4.jpg.webp",
+                "ingredients": "100g pancetta,50g pecorino cheese,3 large eggs, 350g spaghetti, 50g unsalted butter",
+                "preparation": "Put a large saucepan of water on to boil.\nFinely chop the 100g pancetta, having first removed any rind. Finely grate 50g pecorino cheese and 50g parmesan and mix them together.\nBeat the 3 large eggs in a medium bowl and season with a little freshly grated black pepper. Set everything aside.",
+                "_createdOn": 1743061209538,
+                "_id": "e770c8b4-4784-426a-85a4-0a4b40cee351"
+            },
+            {
+                "_ownerId": "28a41145-046e-4136-a39c-eaf17e593664",
+                "name": "Chipotle Honey Chicken",
+                "category": "Meat",
+                "time": "25",
+                "imageUrl": "https://www.budgetbytes.com/wp-content/uploads/2022/09/Honey-Chipotle-Chicken-V1.jpg",
+                "ingredients": "2 chicken thighs, 4 cloves garlic, 2 tablespoons olive oil, 1 teaspoon dried oregano, 1/2 teaspoon salt, 1/4 teaspoon black pepper",
+                "preparation": "Combine the honey, chopped chipotle peppers, adobo sauce, minced garlic, olive oil, lime juice, soy sauce, cumin, oregano, salt, and pepper in a bowl. Whisk thoroughly until the mixture becomes smooth and the honey is fully incorporated. The marinade should have a rich, reddish-brown color with visible flecks of chipotle and herbs. The aroma will be immediately enticing – a perfect balance of sweet honey notes and smoky chipotle heat.",
+                "_createdOn": 1743061473535,
+                "_id": "18a43f21-d448-48d3-a4cc-77f6caf7cf79"
+            }
+        ],
     	comments: {
     		"0a272c58-b7ea-4e09-a000-7ec988248f66": {
     			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
