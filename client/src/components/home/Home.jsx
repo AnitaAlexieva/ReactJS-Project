@@ -38,7 +38,7 @@ export default function Home() {
              <div className="gallery_section_2">
                 <div className="row">
                   {latestRecipes.map(recipe =>(
-                   <div className="col-md-4">
+                   <div className="col-md-4" key={recipe._id}>
                       <div className="container_main">
                          <img src={recipe.imageUrl} alt="recipe" className="image"/>
                          <div className="overlay">

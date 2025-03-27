@@ -10,12 +10,12 @@ import Register from "./components/register/Register"
 import CreateRecipe from "./components/create/CreateRecipe"
 import ErrorPage from "./components/error/ErrorPage"
 import EditRecipe from "./components/edit/EditRecipe"
-import { useState } from "react"
 import { UserContext } from "./contexts/UserContext"
 import Logout from "./components/logout/Logout"
+import usePersistedState from "./hooks/usePersistedState"
 
 function App() {
-  const  [authData, setAuthData] = useState({});
+  const  [authData, setAuthData] = usePersistedState('auth',{});
 
   const userLoginHandler = (resultData) =>{
     setAuthData(resultData);
