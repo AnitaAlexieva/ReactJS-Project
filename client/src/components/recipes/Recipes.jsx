@@ -4,8 +4,6 @@ import { useAllRecipes } from "../../api/recipeApi"
 export default function Recipes() {
 
    const {recipes} = useAllRecipes();
-
-   console.log(recipes)
    
     return(
        <div className="services_section layout_padding">

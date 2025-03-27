@@ -9,7 +9,7 @@ import useAuth from '../../hooks/useAuth';
 
 export default function RecipeDetails() {
   const navigate = useNavigate();
-  const {email} = useAuth();
+  const {email, _id:userId} = useAuth();
 
   const [comments, setComments] = useState([]);
   const {recipeId} = useParams();
@@ -41,6 +41,8 @@ export default function RecipeDetails() {
   const commentCreateHandler = (newComment) =>{
       setComments(state=>[...state, newComment])
   }
+
+  const isOwner = userId === recipe._ownerId;
   return (
     <section className="recipe-details">
       <div className="details-container">
@@ -57,22 +59,27 @@ export default function RecipeDetails() {
             <div className="comments-section">
             <ShowComments  comments={comments}/>
 
-            {/* Comment Form */}
-            <CreateComment 
-              email={email} 
-              recipeId={recipeId} 
-              onCreate = {commentCreateHandler}
-            />
 
-            <div className="action-buttons">
-            <Link to={`/recipes/${recipeId}/edit`} className="edit-button">Edit</Link>
-            <button 
-                onClick={recipeDeleteClickHandler}
-                className="delete-button"
-                >
-                  Delete
-                </button>
-          </div>
+            {isOwner ? (
+              <div className="action-buttons">
+              <Link to={`/recipes/${recipeId}/edit`} className="edit-button">Edit</Link>
+              <button 
+                  onClick={recipeDeleteClickHandler}
+                  className="delete-button"
+                  >
+                    Delete
+                  </button>
+            </div>
+            )
+
+            :(
+              <CreateComment 
+                email={email} 
+                recipeId={recipeId} 
+                onCreate = {commentCreateHandler}
+              />
+              )}
+
           </div>
         </div>
 
