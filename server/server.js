@@ -1379,6 +1379,17 @@
                 "preparation": "Combine the honey, chopped chipotle peppers, adobo sauce, minced garlic, olive oil, lime juice, soy sauce, cumin, oregano, salt, and pepper in a bowl. Whisk thoroughly until the mixture becomes smooth and the honey is fully incorporated. The marinade should have a rich, reddish-brown color with visible flecks of chipotle and herbs. The aroma will be immediately enticing – a perfect balance of sweet honey notes and smoky chipotle heat.",
                 "_createdOn": 1743061473535,
                 "_id": "18a43f21-d448-48d3-a4cc-77f6caf7cf79"
+            },
+            {
+                "_ownerId": "40f7fbf3-8761-40e5-93b3-f7ec8d4dd2d9",
+                "name": "Italian Chopped Salad",
+                "category": "Salad",
+                "time": "15",
+                "imageUrl": "https://bakerbynature.com/wp-content/uploads/2023/02/Giant-Italian-Chopped-Salad-218.jpg",
+                "ingredients": "Iceberg lettuce and radicchio, Red onion, Cherry tomatoe, Pepperoncini,  Chickpeas, Pearl mozzarella, A lemon vinaigrette ",
+                "preparation": "n the past, I’ve made chopped salad with romaine lettuce, but I’m obsessed with the mix of iceberg lettuce and radicchio in Gaby’s recipe. Because both come in round heads, you can slice them into uniform thin strips. The onion slices have a similar shape too, so everything mixes together perfectly.",
+                "_createdOn": 1743065129045,
+                "_id": "c2df3b02-fe7b-40e4-bdbe-205df97378c8"
             }
         ],
     	comments: {

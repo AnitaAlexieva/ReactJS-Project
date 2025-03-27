@@ -5,27 +5,6 @@ import useAuth from "../hooks/useAuth";
 
 const baseUrl = 'http://localhost:3030/data/recipes';
 
-export default{
-    async getAll(){
-        const result = await request.get(baseUrl);
-
-        const recipes = Object.values(result);
-
-        return recipes;
-    },
-    create(recipeData) {
-        return request.post(baseUrl, recipeData)
-    },
-    getOne(recipeId){
-        return request.get(`${baseUrl}/${recipeId}`)
-    },
-    delete(recipeId){
-        return request.delete(`${baseUrl}/${recipeId}`)
-    },
-    edit(recipeId, recipeData){
-        return request.put(`${baseUrl}/${recipeId}`, {...recipeData, _id:recipeId} )
-    }
-}
 
 export const useCreateRecipe = () =>{
     const {request} = useAuth();
@@ -91,4 +70,20 @@ export const useDeleteRecipe = () =>{
     return{
          deleteRecipe,
     }
+}
+export const useLatestGames = () =>{
+    const [latestRecipes, setLatestRecipes] = useState([]);
+
+    
+    useEffect(() =>{
+        const searchParams = new URLSearchParams({
+            sortBy: '_createdOn desc',
+            pageSize: 3,
+        })
+
+        request.get(`${baseUrl}?${searchParams.toString()}`)
+            .then(setLatestRecipes)
+    },[])
+
+    return{latestRecipes};
 }

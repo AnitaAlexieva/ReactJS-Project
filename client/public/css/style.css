@@ -482,7 +482,8 @@ button {
 }
 
 img.image {
-    min-height: 300px;
+    width: 300px;
+    height: 400px;
 }
 
 .container_main {

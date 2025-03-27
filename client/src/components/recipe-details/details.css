@@ -156,7 +156,7 @@ li.li-comment{
 
 .recipe-image {
   width: 100%;
-  max-height: 300px;
+  height: 450px;
   object-fit: cover;
   border-radius: 10px;
 }
