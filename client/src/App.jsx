@@ -27,6 +27,11 @@ function App() {
                 <Route path="/recipes/:recipeId/details" element={<DetailsRecipe/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/register" element={<Register/>} />
+                <Route element={<AuthGuard/>}>
+                    <Route path="/recipe/create" element={<CreateRecipe/>}/>
+                    <Route path="/logout" element={<Logout/>}/>
+                    <Route path="/recipes/:recipeId/edit" element={<EditRecipe/>}/>
+                </Route>
                 <Route path="*" element={<ErrorPage/>}/>
             </Routes>
       
