@@ -1,8 +1,10 @@
-import { useNavigate, useParams } from 'react-router'
+import { Navigate, useNavigate, useParams } from 'react-router'
 import './edit.css'
 import { useEditRecipe, useOneRecipe } from '../../api/recipeApi';
+import useAuth from '../../hooks/useAuth';
 
 export default function EditRecipe() {
+  const {userId} = useAuth();
   const navigate = useNavigate();
   const {recipeId} = useParams();
   const recipe= useOneRecipe(recipeId);
@@ -16,6 +18,12 @@ export default function EditRecipe() {
 
     navigate(`/recipes/${recipeId}/details`)
   }
+
+  const isOwner = userId = recipe._ownerId;
+  if(!isOwner){
+    return <Navigate to="/recipes"/>
+  }
+  
     return(
         <section className="create">
         <div className="create-form">
