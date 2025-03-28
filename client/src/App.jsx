@@ -10,40 +10,29 @@ import Register from "./components/register/Register"
 import CreateRecipe from "./components/create/CreateRecipe"
 import ErrorPage from "./components/error/ErrorPage"
 import EditRecipe from "./components/edit/EditRecipe"
-import { UserContext } from "./contexts/UserContext"
 import Logout from "./components/logout/Logout"
-import usePersistedState from "./hooks/usePersistedState"
+import UserProvider from "./components/providers/UserProvider"
+import AuthGuard from "./components/guards/AuthGuard"
 
 function App() {
-  const  [authData, setAuthData] = usePersistedState('auth',{});
-
-  const userLoginHandler = (resultData) =>{
-    setAuthData(resultData);
-  }
-  const userLogoutHandler = () =>{
-    setAuthData({});
-  }
+ 
   return (
-    <>  
-    <UserContext.Provider value={{...authData, userLoginHandler, userLogoutHandler}}>
-        <Header/>
-
-          <Routes>
-              <Route index element={<Home/>} />
-              <Route path="/about" element={<About />} />
-              <Route path="/recipes" element={<Recipes/>}/>
-              <Route path="/recipes/:recipeId/details" element={<DetailsRecipe/>}/>
-              <Route path="/recipes/:recipeId/edit" element={<EditRecipe/>}/>
-              <Route path="/login" element={<Login/>}/>
-              <Route path="/register" element={<Register/>} />
-              <Route path="/createRecipe" element={<CreateRecipe/>}/>
-              <Route path="*" element={<ErrorPage/>}/>
-              <Route path="/logout" element={<Logout/>}/>
-          </Routes>
+    <UserProvider>
+          <Header/>
+  
+            <Routes>
+                <Route index element={<Home/>} />
+                <Route path="/about" element={<About />} />
+                <Route path="/recipes" element={<Recipes/>}/>
+                <Route path="/recipes/:recipeId/details" element={<DetailsRecipe/>}/>
+                <Route path="/login" element={<Login/>}/>
+                <Route path="/register" element={<Register/>} />
+                <Route path="*" element={<ErrorPage/>}/>
+            </Routes>
+      
+          <Footer/>
+    </UserProvider>
     
-        <Footer/>
-    </UserContext.Provider>
-    </>
   )
 }
 
