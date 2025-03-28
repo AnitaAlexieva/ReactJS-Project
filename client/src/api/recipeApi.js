@@ -32,7 +32,7 @@ export const useAllRecipes = () =>{
 
 export const useOneRecipe = (recipeId) =>{
     const [recipe, setRecipe] = useState({});
-
+    
     useEffect(() =>{
         request.get(`${baseUrl}/${recipeId}`)
         .then(result => {
@@ -47,6 +47,7 @@ export const useOneRecipe = (recipeId) =>{
         })
 
     }, [recipeId])
+    console.log(recipe)
 
     return recipe;
 }
@@ -54,8 +55,8 @@ export const useOneRecipe = (recipeId) =>{
 export const useEditRecipe = () =>{
     const {request} = useAuth();
 
-    const edit = (recipeId, recipeData) =>{
-        request.put(`${baseUrl}/${recipeId}`, {...recipeData, _id:recipeId});
+    const edit = async (recipeId, recipeData) =>{
+        await request.put(`${baseUrl}/${recipeId}`, {...recipeData, _id:recipeId});
     }
     return{
         edit,

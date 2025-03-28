@@ -10,7 +10,10 @@ export default function EditRecipe() {
   const recipe= useOneRecipe(recipeId);
   const {edit} = useEditRecipe();
 
-
+  if (!recipe || !recipe._ownerId) {
+    return <p>Loading...</p>; // Show loading message until the recipe is available
+  }
+  
   const formAction = async (formData) =>{
     const recipeData = Object.fromEntries(formData);
 
@@ -19,7 +22,9 @@ export default function EditRecipe() {
     navigate(`/recipes/${recipeId}/details`)
   }
 
-  const isOwner = userId = recipe._ownerId;
+  const isOwner = userId === recipe._ownerId;
+  console.log(userId);
+  console.log(recipe._ownerId)
   if(!isOwner){
     return <Navigate to="/recipes"/>
   }
