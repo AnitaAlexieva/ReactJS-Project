@@ -9,7 +9,7 @@ import useAuth from '../../hooks/useAuth';
 
 export default function RecipeDetails() {
   const navigate = useNavigate();
-  const {email, _id:userId} = useAuth();
+  const {username, _id:userId} = useAuth();
 
   const [comments, setComments] = useState([]);
   const {recipeId} = useParams();
@@ -74,7 +74,7 @@ export default function RecipeDetails() {
 
             :(
               <CreateComment 
-                email={email} 
+                username={username} 
                 recipeId={recipeId} 
                 onCreate = {commentCreateHandler}
               />

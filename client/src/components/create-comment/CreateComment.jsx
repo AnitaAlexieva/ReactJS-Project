@@ -2,7 +2,7 @@ import { useParams } from "react-router";
 import { useCreateComments } from "../../api/commentApi";
 
 export default function CreateComment({
-    email,
+    username,
     onCreate
 }) {
     const {recipeId} = useParams();
@@ -10,8 +10,8 @@ export default function CreateComment({
 
     const commentAction = async(formData) =>{
         const comment = formData.get('comment');
-
-        const createdComment =await create(comment, email, recipeId);
+        console.log(username);
+        const createdComment =await create(comment, username, recipeId);
         onCreate(createdComment);
     }
     return (

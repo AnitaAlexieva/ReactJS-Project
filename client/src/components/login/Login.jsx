@@ -19,7 +19,7 @@ export default function Login() {
     return values;
   }
 
-  const [_, loginAction, isPending] = useActionState(loginHandler, {email:'', password: ''});
+  const [_, loginAction, isPending] = useActionState(loginHandler, {username:'', email:'', password: ''});
 
     return(
         

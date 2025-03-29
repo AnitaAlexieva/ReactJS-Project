@@ -8,8 +8,8 @@ const baseUrl = 'http://localhost:3030/data/comments'
 export const useCreateComments = () =>{
    const {request} = useAuth();
 
-   const create =async (comment, email, recipeId) =>{
-       await request.post(baseUrl, {comment, email, recipeId});
+   const create =async (comment, username, recipeId) =>{
+       await request.post(baseUrl, {comment, username, recipeId});
    }
 
    console.log(request)

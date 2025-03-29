@@ -12,9 +12,9 @@ export default function ShowComments() {
 
             <div className="comment">
                 {comments.length > 0
-                ? comments.map(({_id,email,comment}) => (
+                ? comments.map(({_id,username,comment}) => (
                     <li className="li-comment" key={_id}>
-                        <p>{email} : <strong>{comment}</strong></p>
+                        <p>{username} : <strong>{comment}</strong></p>
                     </li>
                 ))
                 :
