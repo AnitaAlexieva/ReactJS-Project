@@ -1,14 +1,17 @@
-import commentsService from "../../services/commentsService";
+import { useParams } from "react-router";
+import { useCreateComments } from "../../api/commentApi";
 
 export default function CreateComment({
     email,
-    recipeId,
     onCreate
 }) {
+    const {recipeId} = useParams();
+    const {create} = useCreateComments(recipeId);
+
     const commentAction = async(formData) =>{
         const comment = formData.get('comment');
 
-        const createdComment = await commentsService.create(email, recipeId, comment);
+        const createdComment =await create(comment, email, recipeId);
         onCreate(createdComment);
     }
     return (
