@@ -17,3 +17,17 @@ export const useCreateComments = () =>{
     create
    }
 }
+
+export const useAllComments = (recipeId) =>{
+    const [comments, setComments] = useState([]);
+
+    useEffect(() =>{
+        const searchParams = new URLSearchParams({
+            where:`recipeId="${recipeId}"`
+        })
+        request.get(`${baseUrl}?${searchParams.toString()}`)
+            .then(setComments)
+    },[])
+
+    return comments
+}
