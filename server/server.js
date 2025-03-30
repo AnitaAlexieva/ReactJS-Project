@@ -1392,15 +1392,40 @@
                 "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
             }
         ],
-    	comments: {
-    		"0a272c58-b7ea-4e09-a000-7ec988248f66": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			content: "Great recipe!",
-    			recipeId: "8f414b4f-ab39-4d36-bedb-2ad69da9c830",
-    			_createdOn: 1614260681375,
-    			_id: "0a272c58-b7ea-4e09-a000-7ec988248f66"
-    		}
-    	},
+    	comments: [
+            {
+                "_ownerId": "66cd0518-9f16-4bf0-b113-b4b75fa2c75b",
+                "comment": "A very delicious soup!",
+                "username": "Anitaa0802",
+                "recipeId": "0",
+                "_createdOn": 1743231460738,
+                "_id": "c32db479-364c-4469-a5e8-81c1c371f2ad"
+            },
+            {
+                "_ownerId": "66cd0518-9f16-4bf0-b113-b4b75fa2c75b",
+                "comment": "Perfect!",
+                "username": "Anitaa0802",
+                "recipeId": "1",
+                "_createdOn": 1743230707755,
+                "_id": "46c4be4e-ea4e-4c7b-ac46-f27822a14c38"
+            },
+            {
+                "_ownerId": "66cd0518-9f16-4bf0-b113-b4b75fa2c75b",
+                "comment": "Awesome!",
+                "username": "Anitaa0802",
+                "recipeId": "3",
+                "_createdOn": 1743231620775,
+                "_id": "1ee5f4c5-6f2d-46e3-9cad-0715a537b73c"
+            },
+            {
+                "_ownerId": "66cd0518-9f16-4bf0-b113-b4b75fa2c75b",
+                "comment": "Super!",
+                "username": "Anitaa0802",
+                "recipeId": "3",
+                "_createdOn": 1743232410959,
+                "_id": "6e5e93c7-3fc9-4195-ac36-7fd80bfa0f2f"
+            },
+        ],
     	records: {
     		i01: {
     			name: "John1",
