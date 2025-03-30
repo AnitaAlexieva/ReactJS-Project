@@ -43,6 +43,11 @@ export default function RecipeDetails() {
   }
 
   const isOwner = userId === recipe._ownerId;
+  let isUser= false;
+  if(userId){
+    isUser = true;
+  }
+
   return (
     <section className="recipe-details">
       <div className="details-container">
@@ -55,12 +60,11 @@ export default function RecipeDetails() {
           <p className="preparation">{recipe.preparation}</p>
 
 
-            {/* Comments Section */}
-            <div className="comments-section">
-            <ShowComments  comments={comments}/>
+          <div className="comments-section">
+          <ShowComments />
 
-
-            {isOwner ? (
+            
+            {isOwner && (
               <div className="action-buttons">
               <Link to={`/recipes/${recipeId}/edit`} className="edit-button">Edit</Link>
               <button 
@@ -70,15 +74,18 @@ export default function RecipeDetails() {
                     Delete
                   </button>
             </div>
-            )
+            )}
 
-            :(
-              <CreateComment 
+      
+            {isUser && (
+                <CreateComment 
                 username={username} 
                 recipeId={recipeId} 
                 onCreate = {commentCreateHandler}
               />
-              )}
+            )}
+            
+            
 
           </div>
         </div>
