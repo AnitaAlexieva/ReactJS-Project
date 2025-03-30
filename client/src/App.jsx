@@ -13,11 +13,14 @@ import EditRecipe from "./components/edit/EditRecipe"
 import Logout from "./components/logout/Logout"
 import UserProvider from "./components/providers/UserProvider"
 import AuthGuard from "./components/guards/AuthGuard"
+import { ToastContainer } from "react-toastify"
 
 function App() {
  
   return (
     <UserProvider>
+         <ToastContainer/>
+
           <Header/>
   
             <Routes>

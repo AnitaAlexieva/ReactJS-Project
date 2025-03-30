@@ -3,27 +3,39 @@ import './login.css'
 import { useActionState } from 'react';
 import { useLogin } from '../../api/authApi';
 import {  useUserContext } from '../../contexts/UserContext';
+import {ToastContainer, toast} from 'react-toastify';
 
 export default function Login() {
   const navigate = useNavigate();
   const {login} = useLogin();
   const {userLoginHandler} = useUserContext();
   
-  const loginHandler = async (_, formData) =>{
+  const loginHandler = async (_, formData) => {
     const values = Object.fromEntries(formData);
-    
-    const authData = await login(values.email, values.password);
-
-    userLoginHandler(authData);
-    navigate('/recipes')
+  
+    try {
+      const authData = await login(values.email, values.password);
+  
+      if (!authData || !authData.accessToken) {
+        throw new Error("Invalid email or password");
+      }
+  
+      userLoginHandler(authData);
+      toast.success("Successful login");
+      navigate("/recipes");
+    } catch (err) {
+      toast.error(err.message || "Login failed");
+    }
+  
     return values;
-  }
+  };
 
   const [_, loginAction, isPending] = useActionState(loginHandler, {username:'', email:'', password: ''});
 
     return(
         
         <div className="wrapper">
+          
           <div className="title"><span>Login Form</span></div>
           <form action={loginAction}>
             <div className="row">
