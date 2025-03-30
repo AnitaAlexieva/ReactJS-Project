@@ -230,7 +230,12 @@ button {
     height: auto;
     background-size: 100%;
 }
-
+.hello{
+    margin: 9px;
+    font-size: 17px;
+    color: black;
+    font-weight: 500;
+}
 .bg-light {
     background-color: transparent !important;
 }

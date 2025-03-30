@@ -10,7 +10,6 @@ export default function CreateComment({
 
     const commentAction = async(formData) =>{
         const comment = formData.get('comment');
-        console.log(username);
         const createdComment =await create(comment, username, recipeId);
         onCreate(createdComment);
     }

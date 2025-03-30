@@ -2,7 +2,7 @@ import { Link } from "react-router"
 import { useUserContext } from "../../contexts/UserContext"
 
 export default function Header() {
-   const {email} = useUserContext();
+   const {email, username} = useUserContext();
    
     return(
         <div className="header_section">
@@ -23,7 +23,7 @@ export default function Header() {
                         <div id="user">               
                            <Link className="nav-link" to="/recipe/create">Create Recipe</Link>                       
                            <Link className="nav-link" to="/logout">Logout</Link>  
-                           <li>{email} </li>                    
+                           <li className="hello">Hello, {username} !</li>                    
                         </div>
                      )
                      :(
