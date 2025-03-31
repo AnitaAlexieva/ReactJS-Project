@@ -1,0 +1,78 @@
+.books-container {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    column-gap: 200px;
+    justify-content: center;
+    flex-direction: row;
+}
+.book_section{
+    background-image: url(/images/back1.jpg);
+    width: 100%;
+    float: left;
+    height: auto;
+    padding-bottom: 100px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding-top: 20px;
+}
+.book-img{
+    width: 300px;
+    height: auto;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+.book-img img{
+    max-width: 100%;
+    height: 220px;
+}
+
+.box_main_books .book-img .image_2 {
+    display: none;
+}
+
+.box_main_books:hover .book-img .image_2 {
+    display: block;
+}
+
+.box_main_books:hover .book-img .image_1 {
+    display: none;
+}
+
+.box_main_books:hover {
+    background-color: #ffffff;
+}
+
+.box_main_books {
+    min-width: 500px;
+    background-color: #8d5f4d;
+    padding: 40px 30px;
+    box-shadow: 0px 0px 18px -6px;
+}
+.box_main_books_books {
+    min-width: 500px;
+    background-color: #8d5f4d;
+    padding: 40px 30px;
+    box-shadow: 0px 0px 18px -6px;
+}
+
+.box_main_books:hover .decorate_text {
+    color: #000;
+}
+
+.box_main_books:hover .tation_text {
+    color: #000;
+}
+
+.box_main_books:hover .readmore_bt {
+    display: block;
+}
+
+.box_main_books:hover .readmore_bt a {
+    color: #ffffff;
+    background-color: #000;
+}

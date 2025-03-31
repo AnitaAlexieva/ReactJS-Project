@@ -15,6 +15,8 @@ import UserProvider from "./components/providers/UserProvider"
 import AuthGuard from "./components/guards/AuthGuard"
 import { ToastContainer } from "react-toastify"
 import GuestGuard from "./components/guards/GuestGuard"
+import Books from "./components/books/Books"
+import CreateRecipeBook from "./components/create-book/CreateBook"
 
 function App() {
  
@@ -28,6 +30,7 @@ function App() {
                 <Route index element={<Home/>} />
                 <Route path="/about" element={<About />} />
                 <Route path="/recipes" element={<Recipes/>}/>
+                <Route path="/books" element={<Books/>}/>
                 <Route path="/recipes/:recipeId/details" element={<DetailsRecipe/>}/>
                 <Route element={<GuestGuard/>}>
                     <Route path="/login" element={<Login/>}/>
