@@ -14,6 +14,7 @@ import Logout from "./components/logout/Logout"
 import UserProvider from "./components/providers/UserProvider"
 import AuthGuard from "./components/guards/AuthGuard"
 import { ToastContainer } from "react-toastify"
+import GuestGuard from "./components/guards/GuestGuard"
 
 function App() {
  
@@ -28,8 +29,10 @@ function App() {
                 <Route path="/about" element={<About />} />
                 <Route path="/recipes" element={<Recipes/>}/>
                 <Route path="/recipes/:recipeId/details" element={<DetailsRecipe/>}/>
-                <Route path="/login" element={<Login/>}/>
-                <Route path="/register" element={<Register/>} />
+                <Route element={<GuestGuard/>}>
+                    <Route path="/login" element={<Login/>}/>
+                    <Route path="/register" element={<Register/>} />
+                </Route>
                 <Route element={<AuthGuard/>}>
                     <Route path="/recipe/create" element={<CreateRecipe/>}/>
                     <Route path="/logout" element={<Logout/>}/>
