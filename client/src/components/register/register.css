@@ -7,7 +7,7 @@
   border-radius: 5px;
   margin: auto;
   margin-bottom: 20px;
-  padding-top: 170px;
+  padding-top: 110px;
 }
 .wrapper .title {
   height: 120px;
@@ -69,7 +69,7 @@ form .row input::placeholder {
   text-decoration: underline;
 }
 .wrapper form .button input {
-  margin-top: 20px;
+  margin-top: 10px;
   color: #fff;
   font-size: 20px;
   font-weight: 500;
@@ -83,7 +83,7 @@ form .button input:hover {
 }
 .wrapper form .signup-link {
   text-align: center;
-  margin-top: 45px;
+  margin-top: 25px;
   font-size: 17px;
 }
 .wrapper form .signup-link a {
@@ -92,4 +92,12 @@ form .button input:hover {
 }
 form .signup-link a:hover {
   text-decoration: underline;
+}
+.wrapper form .row textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  font-size: 16px;
+  resize: none;
 }

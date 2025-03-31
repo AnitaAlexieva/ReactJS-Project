@@ -18,10 +18,11 @@ export default function Header() {
                         <Link className="nav-link" to="/">Home</Link>                  
                         <Link className="nav-link" to="/about">About Us</Link>                     
                         <Link className="nav-link" to="/recipes">Recipes</Link>
+                        <Link className="nav-link" to="/books">Books</Link>
                      {email ? 
                      (
                         <div id="user">               
-                           <Link className="nav-link" to="/recipe/create">Create Recipe</Link>                       
+                           <Link className="nav-link" to="/recipe/create">Create Recipe</Link> 
                            <Link className="nav-link" to="/logout">Logout</Link>  
                            <li className="hello">Hello, {username} !</li>                    
                         </div>
