@@ -40,7 +40,7 @@ export default function BookDetails() {
             
             {isOwner && (
               <div className="action-buttons">
-              <Link to={`/recipes/${bookId}/edit`} className="edit-button">Edit</Link>
+              <Link to={`/books/${bookId}/edit`} className="edit-button">Edit</Link>
               <button 
                   onClick={bookDeleteClickHandler}
                   className="delete-button"

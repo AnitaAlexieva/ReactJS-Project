@@ -18,6 +18,7 @@ import GuestGuard from "./components/guards/GuestGuard"
 import Books from "./components/books/Books"
 import CreateRecipeBook from "./components/create-book/CreateBook"
 import BookDetails from "./components/book-details/BookDetails"
+import EditBook from "./components/book-edit/BookEdit"
 
 function App() {
  
@@ -43,6 +44,7 @@ function App() {
                     <Route path="/books/create" element={<CreateRecipeBook/>}/>
                     <Route path="/logout" element={<Logout/>}/>
                     <Route path="/recipes/:recipeId/edit" element={<EditRecipe/>}/>
+                    <Route path="/books/:bookId/edit" element={<EditBook/>}/>
                 </Route>
                 <Route path="*" element={<ErrorPage/>}/>
             </Routes>
