@@ -25,29 +25,29 @@ export default function Register() {
   }
     return(
         
-        <div class="wrapper">
-          <div class="title"><span>Register</span></div>
+        <div className="wrapper">
+          <div className="title"><span>Register</span></div>
           <form action={registerHandler}>
-            <div class="row">
-              <i class="fas fa-user"></i>
+            <div className="row">
+              <i className="fas fa-user"></i>
               <input type="text" name='username' placeholder="Username" required />
             </div>
-            <div class="row">
-            <i class="fa-solid fa-envelope"></i>
+            <div className="row">
+            <i className="fa-solid fa-envelope"></i>
               <input type="email" name='email' placeholder="Email" required />
             </div>
-            <div class="row">
-              <i class="fas fa-lock"></i>
+            <div className="row">
+              <i className="fas fa-lock"></i>
               <input type="password" name='password' placeholder="Password" required />
             </div>
-            <div class="row">
-              <i class="fas fa-lock"></i>
+            <div className="row">
+              <i className="fas fa-lock"></i>
               <input type="password" name='confirm-password' placeholder="Confirm Password" required />
             </div>
-            <div class="row button">
+            <div className="row button">
               <input type="submit" value="Login" />
             </div>
-            <div class="signup-link">Already a member? <a href="/login">Log in now</a></div>
+            <div className="signup-link">Already a member? <a href="/login">Log in now</a></div>
           </form>
         </div>
       

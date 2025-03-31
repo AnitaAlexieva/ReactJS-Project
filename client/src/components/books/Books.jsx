@@ -11,10 +11,10 @@ export default function Books() {
          <div className="container">
             <div className="row">
                <div className="col-sm-12">
-                  <h1 className="services_taital">Books</h1>
-                  <p className="services_text">Typesetting industry lorem Ipsum is simply dummy text of the </p>
+                  <h1 className="services_taital books">Books</h1>
+                  <p className="services_text books">Typesetting industry lorem Ipsum is simply dummy text of the </p>
                   <li>
-                    <a href="/books/create">Add your book!</a>
+                    <a className="add-book" href="/books/create">Add your book!</a>
                   </li>
                </div>
             </div>

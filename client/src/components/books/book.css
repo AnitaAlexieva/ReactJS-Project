@@ -7,7 +7,7 @@
     flex-direction: row;
 }
 .book_section{
-    background-image: url(/images/back1.jpg);
+    background-image: url(/images/back2.jpg);
     width: 100%;
     float: left;
     height: auto;
@@ -25,6 +25,19 @@
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+}
+.add-book{
+    position: relative;
+    left: 90%;
+    padding: 20px;
+    border: 2px solid #998052;
+    background: wheat;
+    border-radius: 50px;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+.add-book:hover{
+    color: #8d5f4d;
 }
 .book-img img{
     max-width: 100%;
@@ -75,4 +88,7 @@
 .box_main_books:hover .readmore_bt a {
     color: #ffffff;
     background-color: #000;
+}
+.books{
+    color: rgba(100, 43, 21, 0.863);
 }

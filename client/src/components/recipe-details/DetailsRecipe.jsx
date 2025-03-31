@@ -29,7 +29,7 @@ export default function RecipeDetails() {
   }, [recipeId]);
 
   const recipeDeleteClickHandler = async() =>{
-      const hasConfirm = confirm(`Are you sure you want to delete ${recipe.title}?`);
+      const hasConfirm = confirm(`Are you sure you want to delete ${recipe.name}?`);
 
       if(!hasConfirm){
         return;

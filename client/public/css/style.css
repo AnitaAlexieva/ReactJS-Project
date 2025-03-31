@@ -390,6 +390,10 @@ button {
     background: wheat;
 }
 
+.about_section .row{
+    margin-right: -85px;
+    margin-left: 80px;
+}
 .about_taital_main {
     width: 100%;
     float: left;
