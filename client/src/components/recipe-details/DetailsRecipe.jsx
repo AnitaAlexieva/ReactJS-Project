@@ -43,11 +43,13 @@ export default function RecipeDetails() {
   }
 
   const isOwner = userId === recipe._ownerId;
+
   let isUser= false;
   if(userId){
     isUser = true;
   }
-
+  console.log(recipe._ownerId);
+  console.log(userId)
   return (
     <section className="recipe-details">
       <div className="details-container">
@@ -77,7 +79,7 @@ export default function RecipeDetails() {
             )}
 
       
-            {isUser && (
+            {isUser && !isOwner && (
                 <CreateComment 
                 username={username} 
                 recipeId={recipeId} 

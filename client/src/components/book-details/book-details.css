@@ -1,0 +1,124 @@
+.book-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: wheat;
+    padding: 30px;
+  }
+  
+  .book-details-container {
+    display: flex;
+    background-color: white;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    width: 100%;
+    gap: 40px;
+  }
+  
+  /* Left Side: Recipe Info */
+  h1 {
+    color: #e67e22;
+    font-size: 32px;
+  }
+  
+  .category, .time {
+    font-size: 18px;
+    color: #555;
+    margin: 10px 0;
+  }
+  
+  .preparation {
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  .left-side {
+    width: 50%;
+    text-align: left;
+    position: relative; /* Ensures absolute positioning inside */
+    min-height: 300px; /* Prevents collapsing */
+  }
+  
+  /* Action Buttons - Positioned at the bottom left */
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px; /* Adds spacing below comments */
+  }
+  
+  .action-buttons a,
+  .action-buttons button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #e67e22;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .action-buttons a:hover,
+  .action-buttons button:hover {
+    background-color: #d35400;
+  }
+  
+  li.li-comment{
+    border: 1px solid orange;
+    border-radius: 20px;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  
+  /* Common styles for both Edit & Delete buttons */
+  .action-buttons a,
+  .action-buttons button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #e67e22;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Hover effect */
+  .action-buttons a:hover,
+  .action-buttons button:hover {
+    background-color: #d35400;
+  }
+  
+  .back-button:hover {
+    background-color: #d35400;
+  }
+  
+  /* Right Side: Image + Ingredients */
+  .right-side {
+    width: 50%;
+    text-align: left;
+  }
+  
+  .book-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  h3 {
+    margin-top: 20px;
+    color: #d35400;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+ 

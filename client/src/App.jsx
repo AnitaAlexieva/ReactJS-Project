@@ -17,6 +17,7 @@ import { ToastContainer } from "react-toastify"
 import GuestGuard from "./components/guards/GuestGuard"
 import Books from "./components/books/Books"
 import CreateRecipeBook from "./components/create-book/CreateBook"
+import BookDetails from "./components/book-details/BookDetails"
 
 function App() {
  
@@ -32,12 +33,14 @@ function App() {
                 <Route path="/recipes" element={<Recipes/>}/>
                 <Route path="/books" element={<Books/>}/>
                 <Route path="/recipes/:recipeId/details" element={<DetailsRecipe/>}/>
+                <Route path="/books/:bookId/details" element={<BookDetails/>}/>
                 <Route element={<GuestGuard/>}>
                     <Route path="/login" element={<Login/>}/>
                     <Route path="/register" element={<Register/>} />
                 </Route>
                 <Route element={<AuthGuard/>}>
                     <Route path="/recipe/create" element={<CreateRecipe/>}/>
+                    <Route path="/books/create" element={<CreateRecipeBook/>}/>
                     <Route path="/logout" element={<Logout/>}/>
                     <Route path="/recipes/:recipeId/edit" element={<EditRecipe/>}/>
                 </Route>
