@@ -1,0 +1,47 @@
+.create {
+  background-image:url(../images/back.jpg);
+  padding: 5px 0;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.create-form {
+  max-width: 500px;
+  margin: 100px auto 10px;
+  background-color: #8d5f4d;
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.create-form h2 {
+  color: #fff;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.create-form form input,
+.create-form form textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: none;
+}
+
+.create-form form button {
+  display: inline-block;
+  background-color: #bd8e58;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.create-form form button:hover {
+  background-color: rgb(215, 189, 132)
+}
