@@ -1,10 +1,12 @@
 import { useAllBooks } from "../../api/bookApi";
+import useAuth from "../../hooks/useAuth";
 import BookItem from "../book-item/BookItem";
 import './book.css'
 
 export default function Books() {
 
    const {books} = useAllBooks();
+   const {email} = useAuth();
    
     return(
        <div className="book_section layout_padding">
@@ -13,9 +15,11 @@ export default function Books() {
                <div className="col-sm-12">
                   <h1 className="services_taital books">Books</h1>
                   <p className="services_text books">Typesetting industry lorem Ipsum is simply dummy text of the </p>
-                  <li>
-                    <a className="add-book" href="/books/create">Add your book!</a>
-                  </li>
+                  { email && (
+                     <li>
+                         <a className="add-book" href="/books/create">Add your book!</a>
+                     </li>
+                  )}
                </div>
             </div>
             <div className="books-container">
