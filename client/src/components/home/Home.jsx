@@ -18,7 +18,7 @@ export default function Home() {
                               <h1 className="outstanding_text">Outstanding</h1>
                               <h1 className="coffee_text">Coffee Shop</h1>
                               <p className="there_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, </p>
-                              <div className="learnmore_bt"><a href="/about">Learn More</a></div>
+                              <div className="learnmore_bt"><Link to="/about">Learn More</Link></div>
                            </div>
                         </div>
                      </div>

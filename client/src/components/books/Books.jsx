@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { useAllBooks } from "../../api/bookApi";
 import useAuth from "../../hooks/useAuth";
 import BookItem from "../book-item/BookItem";
@@ -17,7 +18,7 @@ export default function Books() {
                   <p className="services_text books">Typesetting industry lorem Ipsum is simply dummy text of the </p>
                   { email && (
                      <li>
-                         <a className="add-book" href="/books/create">Add your book!</a>
+                         <Link className="add-book" to="/books/create">Add your book!</Link>
                      </li>
                   )}
                </div>
