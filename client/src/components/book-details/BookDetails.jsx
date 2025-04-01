@@ -2,31 +2,37 @@ import './book-details.css';
 import { Link, useNavigate, useParams } from 'react-router';
 import { useDeleteBook, useOneBook } from '../../api/bookApi';
 import useAuth from '../../hooks/useAuth';
+import { toast } from 'react-toastify'; // Импортиране на toast
 
 export default function BookDetails() {
   const navigate = useNavigate();
-  const {username, _id:userId} = useAuth();
-
-  const {bookId} = useParams();
- 
-  const book = useOneBook(bookId);
-  const {deleteBook} = useDeleteBook();
+  const { _id: userId } = useAuth();
+  const { bookId } = useParams();
   
+  const book = useOneBook(bookId);
+  const { deleteBook } = useDeleteBook();
 
-  const bookDeleteClickHandler = async() =>{
-      const hasConfirm = confirm(`Are you sure you want to delete ${book.title}?`);
+  // Функция за изтриване на книга с обработка на грешки
+  const bookDeleteClickHandler = async () => {
+    const hasConfirm = confirm(`Are you sure you want to delete ${book.title}?`);
 
-      if(!hasConfirm){
-        return;
-      }
+    if (!hasConfirm) {
+      return;
+    }
+
+    try {
       await deleteBook(bookId);
-      navigate('/books')
-  }
+      navigate('/books');
+    } catch (error) {
+      toast.error(error.message || "Failed to delete the book.");
+      console.error("Error deleting book:", error);
+    }
+  };
 
   const isOwner = userId === book._ownerId;
 
   return (
- <section className="book-details">
+    <section className="book-details">
       <div className="book-details-container">
         <div className="left-side">
           <h1>{book.title}</h1>
@@ -36,28 +42,25 @@ export default function BookDetails() {
           <h3>Preparation</h3>
           <p className="preparation">{book.description}</p>
 
-
-            
-            {isOwner && (
-              <div className="action-buttons">
+          {isOwner && (
+            <div className="action-buttons">
               <Link to={`/books/${bookId}/edit`} className="edit-button">Edit</Link>
-              <button 
-                  onClick={bookDeleteClickHandler}
-                  className="delete-button"
-                  >
-                    Delete
-                  </button>
+              <button
+                onClick={bookDeleteClickHandler}
+                className="delete-button"
+              >
+                Delete
+              </button>
             </div>
-            )}
+          )}
+        </div>
 
-          </div>
         <div className="right-side">
-            <img className="book-image" src={book.imageUrl} alt={book.title} />
-            <p className="publication-year"><strong>Publication Year:</strong> {book.publicationYear}</p>
-            <p className="price"><strong>Price: </strong> {book.price}$</p>
+          <img className="book-image" src={book.imageUrl} alt={book.title} />
+          <p className="publication-year"><strong>Publication Year:</strong> {book.publicationYear}</p>
+          <p className="price"><strong>Price: </strong> {book.price}$</p>
         </div>
-        </div>
-
+      </div>
     </section>
   );
 }

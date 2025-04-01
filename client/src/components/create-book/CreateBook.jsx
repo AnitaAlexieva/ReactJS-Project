@@ -1,15 +1,23 @@
 import './create-book.css';
 import { useNavigate } from 'react-router';
 import { useCreateBook } from '../../api/bookApi';
+import { toast } from 'react-toastify';
 
 export default function CreateRecipeBook() {
   const navigate = useNavigate();
   const { create } = useCreateBook();
 
+  // Submit action to handle form submission
   const submitAction = async (formData) => {
-    const recipeBookData = Object.fromEntries(formData);
-    await create(recipeBookData);
-    navigate('/books');
+    const recipeBookData = Object.fromEntries(formData); // Преобразуваме FormData в обект
+
+    try {
+      await create(recipeBookData); // Изпращаме данните към API-то
+      toast.success("Recipe book created successfully!"); // Успешно съобщение
+      navigate('/books'); // Навигиране към списъка с книги
+    } catch (err) {
+      toast.error(err.message || "An error occurred while creating the book."); // Грешка при създаване
+    }
   };
 
   return (

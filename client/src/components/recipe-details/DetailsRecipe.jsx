@@ -6,6 +6,7 @@ import CreateComment from '../create-comment/CreateComment';
 import commentsService from '../../services/commentsService';
 import { useDeleteRecipe, useOneRecipe } from '../../api/recipeApi';
 import useAuth from '../../hooks/useAuth';
+import { toast } from 'react-toastify';
 
 export default function RecipeDetails() {
   const navigate = useNavigate();
@@ -28,15 +29,22 @@ export default function RecipeDetails() {
     })();
   }, [recipeId]);
 
-  const recipeDeleteClickHandler = async() =>{
-      const hasConfirm = confirm(`Are you sure you want to delete ${recipe.name}?`);
+  const recipeDeleteClickHandler = async () => {
+    const hasConfirm = confirm(`Are you sure you want to delete ${recipe.name}?`);
 
-      if(!hasConfirm){
-        return;
-      }
-      await deleteRecipe(recipeId);
-      navigate('/recipes')
-  }
+    if (!hasConfirm) {
+      return;
+    }
+
+    try {
+      await deleteRecipe(recipeId); // Опитваме се да изтрием рецептата
+      toast.success("Recipe deleted successfully!"); // Известие при успех
+      navigate('/recipes');
+    } catch (error) {
+      toast.error("Failed to delete recipe."); // Известие при грешка
+      console.error("Error deleting recipe:", error);
+    }
+  };
 
   const commentCreateHandler = (newComment) =>{
       setComments(state=>[...state, newComment])

@@ -3,7 +3,7 @@ import './login.css'
 import { useActionState } from 'react';
 import { useLogin } from '../../api/authApi';
 import {  useUserContext } from '../../contexts/UserContext';
-import {ToastContainer, toast} from 'react-toastify';
+import {toast} from 'react-toastify';
 
 export default function Login() {
   const navigate = useNavigate();

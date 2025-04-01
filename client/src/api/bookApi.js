@@ -1,81 +1,100 @@
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import request from "../utils/request";
 import useAuth from "../hooks/useAuth";
-
+import { toast } from "react-toastify"; // Импортиране на toast
 
 const baseUrl = 'http://localhost:3030/data/books';
 
+export const useCreateBook = () => {
+    const { request } = useAuth();
 
-export const useCreateBook = () =>{
-    const {request} = useAuth();
+    const create = async (bookData) => {
+        try {
+            await request.post(baseUrl, bookData);
+        } catch (error) {
+            toast.error(error.message || "Failed to create the book.");
+            console.error("Error creating book:", error);
+        }
+    };
 
-    const create = (bookData) =>
-          request.post(baseUrl, bookData);
-    
-    return{
+    return {
         create,
-    }
-}
+    };
+};
 
-export const useAllBooks = () =>{
-    const [books, setbooks] = useState([]);
+export const useAllBooks = () => {
+    const [books, setBooks] = useState([]);
 
-    useEffect(() =>{
-        request.get(baseUrl)
-            .then(setbooks)
-    },[]);
+    useEffect(() => {
+        const fetchBooks = async () => {
+            try {
+                const response = await request.get(baseUrl);
+                setBooks(response);
+            } catch (error) {
+                toast.error(error.message || "Failed to load books.");
+                console.error("Error fetching books:", error);
+            }
+        };
+        fetchBooks();
+    }, []);
 
-    return{
-        books
-    }
-}
+    return {
+        books,
+    };
+};
 
-export const useOneBook = (bookId) =>{
+export const useOneBook = (bookId) => {
     const [book, setBook] = useState({});
-    
-    useEffect(() =>{
-        request.get(`${baseUrl}/${bookId}`)
-        .then(setBook)
 
-    }, [bookId])
-    console.log(book)
+    useEffect(() => {
+        const fetchBook = async () => {
+            try {
+                const response = await request.get(`${baseUrl}/${bookId}`);
+                setBook(response);
+            } catch (error) {
+                toast.error(error.message || "Failed to load the book.");
+                console.error("Error fetching book:", error);
+            }
+        };
+
+        fetchBook();
+    }, [bookId]);
+
+    console.log(book);
 
     return book;
-}
+};
 
-export const useEditBook = () =>{
-    const {request} = useAuth();
+export const useEditBook = () => {
+    const { request } = useAuth();
 
-    const edit = async (bookId, bookData) =>{
-        await request.put(`${baseUrl}/${bookId}`, {...bookData, _id:bookId});
-    }
-    return{
+    const edit = async (bookId, bookData) => {
+        try {
+            await request.put(`${baseUrl}/${bookId}`, { ...bookData, _id: bookId });
+        } catch (error) {
+            toast.error(error.message || "Failed to edit the book.");
+            console.error("Error editing book:", error);
+        }
+    };
+
+    return {
         edit,
-    }
-}
+    };
+};
 
-export const useDeleteBook = () =>{
-    const {request} = useAuth();
+export const useDeleteBook = () => {
+    const { request } = useAuth();
 
-    const deleteBook = (bookId) =>
-        request.delete(`${baseUrl}/${bookId}`);
-    return{
-         deleteBook,
-    }
-}
-export const useLatestGames = () =>{
-    const [latestbooks, setLatestbooks] = useState([]);
+    const deleteBook = async (bookId) => {
+        try {
+            await request.delete(`${baseUrl}/${bookId}`);
+        } catch (error) {
+            toast.error(error.message || "Failed to delete the book.");
+            console.error("Error deleting book:", error);
+        }
+    };
 
-    
-    useEffect(() =>{
-        const searchParams = new URLSearchParams({
-            sortBy: '_createdOn desc',
-            pageSize: 3,
-        })
-
-        request.get(`${baseUrl}?${searchParams.toString()}`)
-            .then(setLatestbooks)
-    },[])
-
-    return{latestbooks};
-}
+    return {
+        deleteBook,
+    };
+};

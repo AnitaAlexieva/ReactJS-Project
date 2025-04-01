@@ -1,46 +1,70 @@
 import { useEffect } from "react";
 import request from "../utils/request";
-import {  useUserContext } from "../contexts/UserContext";
-
+import { useUserContext } from "../contexts/UserContext";
+import { toast } from "react-toastify"; // Импортиране на toast
 
 const baseUrl = 'http://localhost:3030/users';
 
-export const useLogin = () =>{
-    const login = async (email, password) =>{
-        const result = await request.post(`${baseUrl}/login`, {email, password});
-        return result;
+export const useLogin = () => {
+  const login = async (email, password) => {
+    try {
+      const result = await request.post(`${baseUrl}/login`, { email, password });
+      return result;
+    } catch (error) {
+      toast.error(error.message || "Login failed! Please try again."); // Грешка при login
+      throw error; // Прехвърляне на грешката за обработка на високо ниво
     }
-    return{
-        login
+  };
+
+  return {
+    login,
+  };
+};
+
+export const useRegister = () => {
+  const register = async (username, email, password) => {
+    try {
+      const result = await request.post(`${baseUrl}/register`, { username, email, password });
+      return result;
+    } catch (error) {
+      toast.error(error.message || "Registration failed! Please try again."); // Грешка при регистрация
+      throw error; // Прехвърляне на грешката за обработка на високо ниво
     }
-}
-export const useRegister = () =>{
-    const register = (username, email, password) =>
-        request.post(`${baseUrl}/register`, {username, email, password})
+  };
 
-    return{
-        register,
+  return {
+    register,
+  };
+};
+
+export const useLogout = () => {
+  const { accessToken, userLogoutHandler } = useUserContext();
+
+  useEffect(() => {
+    if (!accessToken) {
+      return;
     }
-}
-export const  useLogout = () =>{
-    const {accessToken, userLogoutHandler} = useUserContext();
 
-    useEffect(() =>{
-        if(!accessToken){
-            return;
-        }
+    const options = {
+      headers: {
+        'X-Authorization': accessToken,
+      },
+    };
 
-        const options = {
-            headers:{
-                'X-Authorization':accessToken
-            }
-        }
-    
-       request.get(`${baseUrl}/logout`, null, options)
-            .then(userLogoutHandler)
+    const logoutRequest = async () => {
+        try {
+            await request.get(`${baseUrl}/logout`, null, options);
+            userLogoutHandler(); // Извикваме userLogoutHandler след успешен logout
+          } catch (error) {
+            toast.error(error.message || "Logout failed! Please try again."); // Грешка при logout
+          }
+      };
+  
+      logoutRequest();
+  
+    }, [accessToken, userLogoutHandler]);
 
-    }, [accessToken, userLogoutHandler])
-    return{
-        isLoggedOut: !!accessToken,
-    }
-}
+  return {
+    isLoggedOut: !!accessToken, // Погрешно логнатите ще бъдат маркирани като не логнати
+  };
+};
