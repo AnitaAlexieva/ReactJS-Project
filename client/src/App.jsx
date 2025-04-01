@@ -19,6 +19,7 @@ import Books from "./components/books/Books"
 import CreateRecipeBook from "./components/create-book/CreateBook"
 import BookDetails from "./components/book-details/BookDetails"
 import EditBook from "./components/book-edit/BookEdit"
+import MealPage from "./components/search-meals/SearchMeals"
 
 function App() {
  
@@ -45,6 +46,7 @@ function App() {
                     <Route path="/logout" element={<Logout/>}/>
                     <Route path="/recipes/:recipeId/edit" element={<EditRecipe/>}/>
                     <Route path="/books/:bookId/edit" element={<EditBook/>}/>
+                    <Route path="/meals" element={<MealPage/>}/>
                 </Route>
                 <Route path="*" element={<ErrorPage/>}/>
             </Routes>
