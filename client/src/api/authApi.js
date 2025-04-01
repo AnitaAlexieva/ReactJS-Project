@@ -3,7 +3,7 @@ import request from "../utils/request";
 import { useUserContext } from "../contexts/UserContext";
 import { toast } from "react-toastify"; // Импортиране на toast
 
-const baseUrl = 'http://localhost:3030/users';
+const baseUrl = 'https://reactjs-project-am7g.onrender.com/users';
 
 export const useLogin = () => {
   const login = async (email, password) => {

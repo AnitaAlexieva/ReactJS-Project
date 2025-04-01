@@ -3,7 +3,7 @@ import request from "../utils/request";
 import useAuth from "../hooks/useAuth";
 import { toast } from "react-toastify"; // Импортиране на toast
 
-const baseUrl = 'http://localhost:3030/data/books';
+const baseUrl = 'https://reactjs-project-am7g.onrender.com/data/books';
 
 export const useCreateBook = () => {
     const { request } = useAuth();

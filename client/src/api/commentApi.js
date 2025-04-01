@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import request from "../utils/request";
 import useAuth from "../hooks/useAuth";
 
-const baseUrl = 'http://localhost:3030/data/comments'
+const baseUrl = 'https://reactjs-project-am7g.onrender.com/data/comments'
 
 
 export const useCreateComments = () =>{
