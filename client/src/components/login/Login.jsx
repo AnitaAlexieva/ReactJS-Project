@@ -21,7 +21,6 @@ export default function Login() {
       }
   
       userLoginHandler(authData);
-      toast.success("Successful login");
       navigate("/recipes");
     } catch (err) {
       toast.error(err.message || "Login failed");

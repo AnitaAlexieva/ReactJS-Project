@@ -2,6 +2,7 @@ import { Navigate, useNavigate, useParams } from 'react-router'
 import './edit.css'
 import { useEditRecipe, useOneRecipe } from '../../api/recipeApi';
 import useAuth from '../../hooks/useAuth';
+import { toast } from 'react-toastify';
 
 export default function EditRecipe() {
   const {userId} = useAuth();
@@ -14,14 +15,18 @@ export default function EditRecipe() {
     return <p>Loading...</p>; // Show loading message until the recipe is available
   }
   
-  const formAction = async (formData) =>{
+  const formAction = async (formData) => {
     const recipeData = Object.fromEntries(formData);
 
-    await edit(recipeId, recipeData);
-
-    navigate(`/recipes/${recipeId}/details`)
+    try {
+      await edit(recipeId, recipeData);
+      toast.success('Recipe updated successfully!'); // Success toast
+      navigate(`/recipes/${recipeId}/details`);
+    } catch (err) {
+      toast.error(err.message || 'Failed to update recipe!'); // Error toast
+    }
   }
-
+  
   const isOwner = userId === recipe._ownerId;
   console.log(userId);
   console.log(recipe._ownerId)

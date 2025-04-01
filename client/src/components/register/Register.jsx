@@ -37,7 +37,6 @@ export default function Register() {
     try {
       const authData = await register(username, email, password);
       userLoginHandler(authData);
-      toast.success('Registration successful!');
       navigate('/');
     } catch (err) {
       toast.error(err.message || 'Registration failed!');
