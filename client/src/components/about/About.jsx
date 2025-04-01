@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 export default function About() {
     return(
         <div className="about_section layout_padding">
@@ -8,7 +10,7 @@ export default function About() {
                     <div className="about_taital">About Us</div>
                     <p className="about_text">Full cleaning and housekeeping services for companies and households.</p>
                     <p className="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.Lorem Ipsum is simply.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.Lorem Ipsum is simply</p>
-                    <div className="read_bt"><a href="/recipes">Our recipes</a></div>
+                    <div className="read_bt"><Link to="/recipes">Our recipes</Link></div>
                  </div>
               </div>
               <div className="col-md-6">

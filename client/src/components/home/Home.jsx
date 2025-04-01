@@ -52,7 +52,7 @@ export default function Home() {
              </div>
              
           </div>
-          <div className="seemore_bt"><a href="/recipes">See More</a></div>
+          <div className="seemore_bt"><Link to="/recipes">See More</Link></div>
        </div>
     </div>
     </>
