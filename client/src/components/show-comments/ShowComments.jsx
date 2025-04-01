@@ -1,10 +1,9 @@
 import { useParams } from "react-router";
 import { useAllComments } from "../../api/commentApi"
 
-export default function ShowComments() {
-    const {recipeId} = useParams();
-    const comments = useAllComments(recipeId);
-
+export default function ShowComments({
+    comments
+}) {
 
     return (
         <>

@@ -3,31 +3,26 @@ import './details.css';
 import { Link, useNavigate, useParams } from 'react-router';
 import ShowComments from '../show-comments/ShowComments';
 import CreateComment from '../create-comment/CreateComment';
-import commentsService from '../../services/commentsService';
 import { useDeleteRecipe, useOneRecipe } from '../../api/recipeApi';
 import useAuth from '../../hooks/useAuth';
 import { toast } from 'react-toastify';
+import { useAllComments } from '../../api/commentApi';
 
 export default function RecipeDetails() {
   const navigate = useNavigate();
   const {username, _id:userId} = useAuth();
 
-  const [comments, setComments] = useState([]);
   const {recipeId} = useParams();
+  const comments = useAllComments(recipeId);
+
+  const [localComments, setLocalComments] = useState(comments);
  
   const recipe = useOneRecipe(recipeId);
   const {deleteRecipe} = useDeleteRecipe();
   
   useEffect(() => {
-    (async () => {
-      if(!recipeId){
-        return;
-      }
-
-      const allComments = await commentsService.getAll(recipeId)
-      setComments(allComments);
-    })();
-  }, [recipeId]);
+    setLocalComments(comments); // Update local state whenever comments change
+  }, [comments]);
 
   const recipeDeleteClickHandler = async () => {
     const hasConfirm = confirm(`Are you sure you want to delete ${recipe.name}?`);
@@ -47,7 +42,7 @@ export default function RecipeDetails() {
   };
 
   const commentCreateHandler = (newComment) =>{
-      setComments(state=>[...state, newComment])
+      setLocalComments(state=>[...state, newComment])
   }
 
   const isOwner = userId === recipe._ownerId;
@@ -71,7 +66,7 @@ export default function RecipeDetails() {
 
 
           <div className="comments-section">
-          <ShowComments />
+          <ShowComments comments={localComments}/>
 
             
             {isOwner && (

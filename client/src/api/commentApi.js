@@ -9,25 +9,30 @@ export const useCreateComments = () =>{
    const {request} = useAuth();
 
    const create =async (comment, username, recipeId) =>{
-       await request.post(baseUrl, {comment, username, recipeId});
+    const newComment = await request.post(baseUrl, { comment, username, recipeId });
+    return newComment;
    }
 
-   console.log(request)
    return {
     create
    }
 }
 
-export const useAllComments = (recipeId) =>{
+export const useAllComments = (recipeId) => {
     const [comments, setComments] = useState([]);
-
-    useEffect(() =>{
+  
+    useEffect(() => {
+      const fetchComments = async () => {
         const searchParams = new URLSearchParams({
-            where:`recipeId="${recipeId}"`
-        })
-        request.get(`${baseUrl}?${searchParams.toString()}`)
-            .then(setComments)
-    },[])
-
-    return comments
-}
+          where: `recipeId="${recipeId}"`,
+        });
+        const response = await request.get(`${baseUrl}?${searchParams.toString()}`);
+        setComments(response);
+      };
+  
+      // Зареждаме коментарите всеки път, когато recipeId се промени
+      fetchComments();
+    }, [recipeId]); // добавяме recipeId като зависимост
+  
+    return comments;
+  };
