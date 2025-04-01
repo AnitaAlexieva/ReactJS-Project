@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { useLatestGames } from "../../api/recipeApi"
 
 export default function Home() {
@@ -42,7 +43,7 @@ export default function Home() {
                       <div className="container_main">
                          <img src={recipe.imageUrl} alt="recipe" className="image"/>
                          <div className="overlay">
-                            <div className="text"><a href={`/recipes/${recipe._id}/details`}><i className="fa fa-search" aria-hidden="true"></i></a></div>
+                            <div className="text"><Link to={`/recipes/${recipe._id}/details`}><i className="fa fa-search" aria-hidden="true"></i></Link></div>
                          </div>
                       </div>
                    </div>
