@@ -1,8 +1,10 @@
 import RecipeItem from "./recipes-item/RecipeItem"
 import { useAllRecipes } from "../../api/recipeApi"
+import useAuth from "../../hooks/useAuth";
+import { Link } from "react-router";
 
 export default function Recipes() {
-
+   const {email} = useAuth();
    const {recipes} = useAllRecipes();
    
     return(
@@ -13,6 +15,11 @@ export default function Recipes() {
                   <h1 className="services_taital">Recipes</h1>
                   <p className="services_text">Typesetting industry lorem Ipsum is simply dummy text of the </p>
                </div>
+               { email && (
+                     <li>
+                         <Link className="add-recipe" to="/create/recipe">Add your recipe!</Link>
+                     </li>
+                  )}
             </div>
             <div className="recipes-container">
                {recipes.length > 0 ? (

@@ -72,7 +72,7 @@ export const useDeleteRecipe = () =>{
          deleteRecipe,
     }
 }
-export const useLatestGames = () =>{
+export const useLatestRecipes = () =>{
     const [latestRecipes, setLatestRecipes] = useState([]);
 
     

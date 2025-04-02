@@ -1,9 +1,9 @@
 import { Link } from "react-router";
-import { useLatestGames } from "../../api/recipeApi"
+import { useLatestRecipes } from "../../api/recipeApi"
 
 export default function Home() {
 
-   const {latestRecipes} = useLatestGames();
+   const {latestRecipes} = useLatestRecipes();
 
     return(
         <>
@@ -16,9 +16,9 @@ export default function Home() {
                         <div className="col-sm-12">
                            <div className="banner_taital">
                               <h1 className="outstanding_text">Outstanding</h1>
-                              <h1 className="coffee_text">Coffee Shop</h1>
-                              <p className="there_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, </p>
-                              <div className="learnmore_bt"><Link to="/about">Learn More</Link></div>
+                              <h1 className="coffee_text">Taste Book</h1>
+                              <p className="there_text">At Taste Book, we’re more than just a recipe site – we’re a community of food lovers, creators, and explorers. Let’s cook, create, and share the flavors of life together! </p>
+                                 <div className="learnmore_bt"><Link to="/about">About Us</Link></div>
                            </div>
                         </div>
                      </div>
