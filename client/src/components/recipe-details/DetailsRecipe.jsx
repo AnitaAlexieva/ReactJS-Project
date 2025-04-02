@@ -1,4 +1,4 @@
-import {  useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './details.css';
 import { Link, useNavigate, useParams } from 'react-router';
 import ShowComments from '../show-comments/ShowComments';
@@ -10,16 +10,16 @@ import { useAllComments } from '../../api/commentApi';
 
 export default function RecipeDetails() {
   const navigate = useNavigate();
-  const {username, _id:userId} = useAuth();
+  const { username, _id: userId } = useAuth();
 
-  const {recipeId} = useParams();
+  const { recipeId } = useParams();
   const comments = useAllComments(recipeId);
 
   const [localComments, setLocalComments] = useState(comments);
- 
+
   const recipe = useOneRecipe(recipeId);
-  const {deleteRecipe} = useDeleteRecipe();
-  
+  const { deleteRecipe } = useDeleteRecipe();
+
   useEffect(() => {
     setLocalComments(comments); // Update local state whenever comments change
   }, [comments]);
@@ -41,23 +41,22 @@ export default function RecipeDetails() {
     }
   };
 
-  const commentCreateHandler = (newComment) =>{
-      setLocalComments(state=>[...state, newComment])
+  const commentCreateHandler = (newComment) => {
+    setLocalComments(state => [...state, newComment])
   }
 
   const isOwner = userId === recipe._ownerId;
 
-  let isUser= false;
-  if(userId){
+  let isUser = false;
+  if (userId) {
     isUser = true;
   }
-  console.log(recipe._ownerId);
-  console.log(userId)
+
   return (
     <section className="recipe-details">
       <div className="details-container">
         <div className="left-side">
-          <h1>{recipe.name}</h1>
+          <h1 className="h1-details">{recipe.name}</h1>
           <p className="category"><strong>Category:</strong> {recipe.category}</p>
           <p className="time"><strong>Preparation Time:</strong> {recipe.time}</p>
 
@@ -66,31 +65,31 @@ export default function RecipeDetails() {
 
 
           <div className="comments-section">
-          <ShowComments comments={localComments}/>
+            <ShowComments comments={localComments} />
 
-            
+
             {isOwner && (
               <div className="action-buttons">
-              <Link to={`/recipes/${recipeId}/edit`} className="edit-button">Edit</Link>
-              <button 
+                <Link to={`/recipes/${recipeId}/edit`} className="edit-button">Edit</Link>
+                <button
                   onClick={recipeDeleteClickHandler}
                   className="delete-button"
-                  >
-                    Delete
-                  </button>
-            </div>
+                >
+                  Delete
+                </button>
+              </div>
             )}
 
-      
+
             {isUser && !isOwner && (
-                <CreateComment 
-                username={username} 
-                recipeId={recipeId} 
-                onCreate = {commentCreateHandler}
+              <CreateComment
+                username={username}
+                recipeId={recipeId}
+                onCreate={commentCreateHandler}
               />
             )}
-            
-            
+
+
 
           </div>
         </div>

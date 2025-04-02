@@ -5,12 +5,12 @@ export default function CreateComment({
     username,
     onCreate
 }) {
-    const {recipeId} = useParams();
-    const {create} = useCreateComments(recipeId);
+    const { recipeId } = useParams();
+    const { create } = useCreateComments(recipeId);
 
-    const commentAction = async(formData) =>{
+    const commentAction = async (formData) => {
         const comment = formData.get('comment');
-        const createdComment =await create(comment, username, recipeId);
+        const createdComment = await create(comment, username, recipeId);
         onCreate(createdComment);
     }
     return (

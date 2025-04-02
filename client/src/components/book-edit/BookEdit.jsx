@@ -1,6 +1,6 @@
 import { useEditBook, useOneBook } from '../../api/bookApi';
 import { useNavigate, useParams } from 'react-router';
-import { toast } from 'react-toastify'; // Импортиране на toast
+import { toast } from 'react-toastify';
 
 export default function EditBook() {
   const navigate = useNavigate();
@@ -9,18 +9,18 @@ export default function EditBook() {
   const { edit } = useEditBook();
 
   if (!book || !book._ownerId) {
-    return <p>Loading...</p>; // Show loading message until the book is available
+    return <p>Loading...</p>;
   }
 
   const formAction = async (formData) => {
     const bookData = Object.fromEntries(formData);
 
     try {
-      await edit(bookId, bookData); // Извикваме edit функцията
+      await edit(bookId, bookData);
       toast.success("Book updated successfully!");
-      navigate(`/books/${bookId}/details`); // Пренасочваме към детайлите на книгата
+      navigate(`/books/${bookId}/details`);
     } catch (error) {
-      toast.error(error.message || "Failed to update the book."); // Показваме грешка, ако има такава
+      toast.error(error.message || "Failed to update the book.");
       console.error("Error updating book:", error);
     }
   };

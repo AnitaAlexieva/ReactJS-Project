@@ -5,7 +5,7 @@ import Header from "./components/header/Header"
 import Home from "./components/home/Home"
 import Login from "./components/login/Login"
 import Recipes from "./components/recipes/Recipes"
-import {Route, Routes} from 'react-router'
+import { Route, Routes } from 'react-router'
 import Register from "./components/register/Register"
 import CreateRecipe from "./components/create/CreateRecipe"
 import ErrorPage from "./components/error/ErrorPage"
@@ -22,38 +22,38 @@ import EditBook from "./components/book-edit/BookEdit"
 import MealPage from "./components/search-meals/SearchMeals"
 
 function App() {
- 
+
   return (
     <UserProvider>
-         <ToastContainer/>
+      <ToastContainer />
 
-          <Header/>
-  
-            <Routes>
-                <Route index element={<Home/>} />
-                <Route path="/about" element={<About />} />
-                <Route path="/recipes" element={<Recipes/>}/>
-                <Route path="/books" element={<Books/>}/>
-                <Route path="/recipes/:recipeId/details" element={<DetailsRecipe/>}/>
-                <Route path="/books/:bookId/details" element={<BookDetails/>}/>
-                <Route element={<GuestGuard/>}>
-                    <Route path="/login" element={<Login/>}/>
-                    <Route path="/register" element={<Register/>} />
-                </Route>
-                <Route element={<AuthGuard/>}>
-                    <Route path="/recipe/create" element={<CreateRecipe/>}/>
-                    <Route path="/books/create" element={<CreateRecipeBook/>}/>
-                    <Route path="/logout" element={<Logout/>}/>
-                    <Route path="/recipes/:recipeId/edit" element={<EditRecipe/>}/>
-                    <Route path="/books/:bookId/edit" element={<EditBook/>}/>
-                    <Route path="/meals" element={<MealPage/>}/>
-                </Route>
-                <Route path="*" element={<ErrorPage/>}/>
-            </Routes>
-      
-          <Footer/>
+      <Header />
+
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/recipes" element={<Recipes />} />
+        <Route path="/books" element={<Books />} />
+        <Route path="/recipes/:recipeId/details" element={<DetailsRecipe />} />
+        <Route path="/books/:bookId/details" element={<BookDetails />} />
+        <Route element={<GuestGuard />}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Route>
+        <Route element={<AuthGuard />}>
+          <Route path="/recipe/create" element={<CreateRecipe />} />
+          <Route path="/books/create" element={<CreateRecipeBook />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/recipes/:recipeId/edit" element={<EditRecipe />} />
+          <Route path="/books/:bookId/edit" element={<EditBook />} />
+          <Route path="/meals" element={<MealPage />} />
+        </Route>
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
+
+      <Footer />
     </UserProvider>
-    
+
   )
 }
 

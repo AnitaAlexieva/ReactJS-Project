@@ -1,4 +1,4 @@
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import request from "../utils/request";
 import useAuth from "../hooks/useAuth";
 
@@ -6,45 +6,45 @@ import useAuth from "../hooks/useAuth";
 const baseUrl = 'https://reactjs-project-am7g.onrender.com/data/recipes';
 
 
-export const useCreateRecipe = () =>{
-    const {request} = useAuth();
+export const useCreateRecipe = () => {
+    const { request } = useAuth();
 
     const create = (recipeData) =>
-          request.post(baseUrl, recipeData);
-    
-    return{
+        request.post(baseUrl, recipeData);
+
+    return {
         create,
     }
 }
 
-export const useAllRecipes = () =>{
+export const useAllRecipes = () => {
     const [recipes, setRecipes] = useState([]);
 
-    useEffect(() =>{
+    useEffect(() => {
         request.get(baseUrl)
             .then(setRecipes)
-    },[]);
+    }, []);
 
-    return{
+    return {
         recipes
     }
 }
 
-export const useOneRecipe = (recipeId) =>{
+export const useOneRecipe = (recipeId) => {
     const [recipe, setRecipe] = useState({});
-    
-    useEffect(() =>{
+
+    useEffect(() => {
         request.get(`${baseUrl}/${recipeId}`)
-        .then(result => {
-            // Ако `ingredients` е string, го конвертираме в масив
-            const fixedRecipe = {
-                ...result,
-                ingredients: typeof result.ingredients === "string"
-                    ? result.ingredients.split(",").map(i => i.trim())
-                    : result.ingredients
-            };
-            setRecipe(fixedRecipe);
-        })
+            .then(result => {
+
+                const fixedRecipe = {
+                    ...result,
+                    ingredients: typeof result.ingredients === "string"
+                        ? result.ingredients.split(",").map(i => i.trim())
+                        : result.ingredients
+                };
+                setRecipe(fixedRecipe);
+            })
 
     }, [recipeId])
     console.log(recipe)
@@ -52,31 +52,31 @@ export const useOneRecipe = (recipeId) =>{
     return recipe;
 }
 
-export const useEditRecipe = () =>{
-    const {request} = useAuth();
+export const useEditRecipe = () => {
+    const { request } = useAuth();
 
-    const edit = async (recipeId, recipeData) =>{
-        await request.put(`${baseUrl}/${recipeId}`, {...recipeData, _id:recipeId});
+    const edit = async (recipeId, recipeData) => {
+        await request.put(`${baseUrl}/${recipeId}`, { ...recipeData, _id: recipeId });
     }
-    return{
+    return {
         edit,
     }
 }
 
-export const useDeleteRecipe = () =>{
-    const {request} = useAuth();
+export const useDeleteRecipe = () => {
+    const { request } = useAuth();
 
     const deleteRecipe = (recipeId) =>
         request.delete(`${baseUrl}/${recipeId}`);
-    return{
-         deleteRecipe,
+    return {
+        deleteRecipe,
     }
 }
-export const useLatestRecipes = () =>{
+export const useLatestRecipes = () => {
     const [latestRecipes, setLatestRecipes] = useState([]);
 
-    
-    useEffect(() =>{
+
+    useEffect(() => {
         const searchParams = new URLSearchParams({
             sortBy: '_createdOn desc',
             pageSize: 3,
@@ -84,7 +84,7 @@ export const useLatestRecipes = () =>{
 
         request.get(`${baseUrl}?${searchParams.toString()}`)
             .then(setLatestRecipes)
-    },[])
+    }, [])
 
-    return{latestRecipes};
+    return { latestRecipes };
 }

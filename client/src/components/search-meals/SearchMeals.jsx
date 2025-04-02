@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import "./meal.css"; // Import CSS for styling
+import "./meal.css";
 
-export default function MealPage(){
+export default function MealPage() {
   const [meals, setMeals] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    fetchMeals("chicken"); // Default search term to load meals initially
+    fetchMeals("chicken");
   }, []);
 
   const fetchMeals = async (query) => {
@@ -15,7 +15,7 @@ export default function MealPage(){
         `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`
       );
       const data = await response.json();
-      setMeals(data.meals || []); // If no meals are found, set an empty array
+      setMeals(data.meals || []);
     } catch (error) {
       console.error("Error fetching meals:", error);
     }
@@ -37,7 +37,7 @@ export default function MealPage(){
           onChange={(e) => setSearchTerm(e.target.value)}
         />
         <button><i className="fa-solid fa-magnifying-glass" type="submit"></i></button>
-         
+
       </form>
 
       <div className="gallery">

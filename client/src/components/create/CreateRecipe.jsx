@@ -1,7 +1,7 @@
 import './create.css';
 import { useNavigate } from 'react-router';
 import { useCreateRecipe } from '../../api/recipeApi';
-import { toast } from 'react-toastify'; // Импортиране на toast
+import { toast } from 'react-toastify';
 
 export default function CreateRecipe() {
   const navigate = useNavigate();
@@ -11,11 +11,11 @@ export default function CreateRecipe() {
     const recipeData = Object.fromEntries(formData);
 
     try {
-      await create(recipeData); // Опитваме се да създадем новата рецепта
-      toast.success("Recipe created successfully!"); // Уведомяваме потребителя за успех
-      navigate('/recipes'); // Пренасочваме към списъка с рецепти
+      await create(recipeData); 
+      toast.success("Recipe created successfully!"); 
+      navigate('/recipes'); 
     } catch (error) {
-      toast.error(error.message || "Failed to create recipe."); // Уведомяваме за грешка, ако има такава
+      toast.error(error.message || "Failed to create recipe."); 
       console.error("Error creating recipe:", error);
     }
   };

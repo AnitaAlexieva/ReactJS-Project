@@ -697,6 +697,10 @@ a:hover {
     font-weight: 500;
 }
 
+.h1-details{
+    border-bottom: 2px solid orange;
+    margin-bottom: 20px;
+}
 
 .decorate_text {
     width: 100%;

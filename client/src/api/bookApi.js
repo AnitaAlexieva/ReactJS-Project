@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import request from "../utils/request";
 import useAuth from "../hooks/useAuth";
-import { toast } from "react-toastify"; // Импортиране на toast
+import { toast } from "react-toastify";
 
 const baseUrl = 'https://reactjs-project-am7g.onrender.com/data/books';
 

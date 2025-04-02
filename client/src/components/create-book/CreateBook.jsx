@@ -7,16 +7,16 @@ export default function CreateRecipeBook() {
   const navigate = useNavigate();
   const { create } = useCreateBook();
 
-  // Submit action to handle form submission
+
   const submitAction = async (formData) => {
-    const recipeBookData = Object.fromEntries(formData); // Преобразуваме FormData в обект
+    const recipeBookData = Object.fromEntries(formData);
 
     try {
-      await create(recipeBookData); // Изпращаме данните към API-то
-      toast.success("Recipe book created successfully!"); // Успешно съобщение
-      navigate('/books'); // Навигиране към списъка с книги
+      await create(recipeBookData);
+      toast.success("Recipe book created successfully!");
+      navigate('/books');
     } catch (err) {
-      toast.error(err.message || "An error occurred while creating the book."); // Грешка при създаване
+      toast.error(err.message || "An error occurred while creating the book.");
     }
   };
 

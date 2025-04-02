@@ -2,17 +2,17 @@ import './book-details.css';
 import { Link, useNavigate, useParams } from 'react-router';
 import { useDeleteBook, useOneBook } from '../../api/bookApi';
 import useAuth from '../../hooks/useAuth';
-import { toast } from 'react-toastify'; // Импортиране на toast
+import { toast } from 'react-toastify';
 
 export default function BookDetails() {
   const navigate = useNavigate();
   const { _id: userId } = useAuth();
   const { bookId } = useParams();
-  
+
   const book = useOneBook(bookId);
   const { deleteBook } = useDeleteBook();
 
-  // Функция за изтриване на книга с обработка на грешки
+
   const bookDeleteClickHandler = async () => {
     const hasConfirm = confirm(`Are you sure you want to delete ${book.title}?`);
 
@@ -35,11 +35,11 @@ export default function BookDetails() {
     <section className="book-details">
       <div className="book-details-container">
         <div className="left-side">
-          <h1>{book.title}</h1>
+          <h1 className="h1-details">{book.title}</h1>
           <p className="category"><strong>Category:</strong> {book.genre}</p>
           <p className="time"><strong>Author:</strong> {book.author}</p>
 
-          <h3>Preparation</h3>
+          <h3>Descripion</h3>
           <p className="preparation">{book.description}</p>
 
           {isOwner && (
