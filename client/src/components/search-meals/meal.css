@@ -40,11 +40,15 @@
   }
   
   .meal-item {
-    background: white;
-    padding: 10px;
+    background: #e9e2c5;
+    padding: 5px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgb(0 0 0 / 26%);
     transition: transform 0.3s;
+}
+  .h-meal{
+    padding: 70px 0 20px;
+    font-size: 3em;
   }
   
   .meal-item:hover {

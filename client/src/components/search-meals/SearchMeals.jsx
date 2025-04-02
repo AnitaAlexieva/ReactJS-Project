@@ -28,7 +28,7 @@ export default function MealPage(){
 
   return (
     <div className="meal-gallery">
-      <h1>Meal Gallery</h1>
+      <h1 className="h-meal">Meal Gallery</h1>
       <form className="search-bar" onSubmit={handleSearch}>
         <input
           type="text"
