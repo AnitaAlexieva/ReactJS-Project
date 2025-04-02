@@ -17,7 +17,7 @@ export default function Recipes() {
                </div>
                { email && (
                      <li>
-                         <Link className="add-recipe" to="/create/recipe">Add your recipe!</Link>
+                         <Link className="add-recipe" to="/recipe/create">Add your recipe!</Link>
                      </li>
                   )}
             </div>
