@@ -6,8 +6,9 @@
     justify-content: center;
     flex-direction: row;
 }
-.book_section{
-    background-image: url(/images/back2.jpg);
+.book_section {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
+                url(/images/back2.jpg);
     width: 100%;
     float: left;
     height: auto;
@@ -31,7 +32,7 @@
     left: 90%;
     padding: 20px;
     border: 2px solid #998052;
-    background: wheat;
+    background: #d6ab7c;
     border-radius: 50px;
     font-size: 1.2em;
     font-weight: 500;
