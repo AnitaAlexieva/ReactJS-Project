@@ -60,7 +60,6 @@ export const useOneBook = (bookId) => {
         fetchBook();
     }, [bookId]);
 
-    console.log(book);
 
     return book;
 };

@@ -28,8 +28,7 @@ export default function EditRecipe() {
   }
 
   const isOwner = userId === recipe._ownerId;
-  console.log(userId);
-  console.log(recipe._ownerId)
+ 
   if (!isOwner) {
     return <Navigate to="/recipes" />
   }

@@ -47,7 +47,7 @@ export const useOneRecipe = (recipeId) => {
             })
 
     }, [recipeId])
-    console.log(recipe)
+
 
     return recipe;
 }
